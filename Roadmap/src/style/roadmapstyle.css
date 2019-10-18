@@ -1,0 +1,74 @@
+/*** PAGE LAYOUT ***/
+div#roadmapgrid {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 100px;
+    grid-template-areas:
+        "sidebar main"
+        "footer footer";
+}
+
+aside {
+    grid-area: sidebar;
+    background-color: none;
+}
+
+main {
+    grid-area: main;
+    background-color: none;
+    z-index: 5;
+}
+
+main p {
+    color: white;
+}
+
+footer {
+    grid-area: footer;
+    background-color: none;
+}
+
+
+/*** DESIGN ***/ 
+::-webkit-scrollbar {
+    display: none;
+}
+
+.transparent-gradient {
+    background: rgb(255,25,1);
+    background: linear-gradient(0deg, rgba(255,25,1,1) 0%, rgba(255,142,1,1) 13%, rgba(204,255,26,1) 25%, rgba(0,255,110,1) 43%, rgba(0,248,248,1) 61%, rgba(255,0,136,1) 82%, rgba(255,25,1,1) 100%);
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-attachment:fixed;
+    background-size:cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+}
+
+div#div-background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /*background-image: URL('https://wallpaperplay.com/walls/full/e/0/a/54074.jpg');
+    background-color: black;*/
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+div#div-homebutton-area {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+}
