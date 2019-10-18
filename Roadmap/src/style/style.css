@@ -1,9 +1,76 @@
-* {
-    margin: 0;
-    padding: 0;
+
+html, body {
+    background-size: cover;
 }
 
-h1{
 
- color: blue;
+.bp{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100vw;
+    height: 100vh;
+background-image: url("../images/stars_space_galaxy.jpg");
+background-repeat:no-repeat;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover ;
+
 }
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #3e0757;
+    color: white;
+    padding:20px;
+    margin:0px;
+    margin-bottom:1px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #20022e;
+  }
+  
+  /* dropdown button position*/
+  .dropdown {
+    float: right;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden wenn Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #3e0757;
+    padding:0px;
+    margin:2x;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Subsites bei Dropdown*/
+  .dropdown-content a {
+    color:white;
+    text-align: center;
+    padding:5px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /*Frabe von Dropdown verändern beim Hovern*/
+  .dropdown-content a:hover {background-color: rgb(156, 134, 134)}
+  
+.astrologo{
+    width:95px;
+    margin:0px;
+    padding:0px;
+}
+
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
