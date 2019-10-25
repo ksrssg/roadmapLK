@@ -1,19 +1,97 @@
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (event.target.matches('.dropbutton')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
+/*** Variablen ***/
+var rgb = [255, 0, 0]; //Array mit RGB-Werten für animierten Gradient
+var indexColor = 1; //Index für den Algorithmus des animierten Gradients
+var add = true; //Anweisung für den Algorithmus des animierten Gradients
+var timer = 1; //Timer des animierten Gradients
+
+
+
+/*** Animierter Gradient ***/
+var animatedGradient; //Animierter Gradient
+
+function startAnimatedGradient() {
+  /*
+   * Berechnet die Farbwerte des Gradients
+   * Funktion wird durch das Interval {timer} neu aufgerufen
+   * 
+   * -> Starten: startAnimatedGradient()
+   * -> Beenden: clearTimeout(animatedGradient)
+   */
+
+  if (add) {
+    rgb[indexColor]++;
+    if (rgb[indexColor] === 255) {
+      add = false;
+      switch (indexColor) {
+        case 0: indexColor = 2; break;
+        case 1: indexColor = 0; break;
+        case 2: indexColor = 1; break;
+      }
+    }
+  } else {
+    rgb[indexColor]--;
+    if (rgb[indexColor] === 0) {
+      add = true;
+      switch (indexColor) {
+        case 0: indexColor = 2; break;
+        case 1: indexColor = 0; break;
+        case 2: indexColor = 1; break;
       }
     }
   }
+
+  function rgbToHex(colorValues) {
+    /*
+     * Konvertiert RGB Werte zu einem Hexcode
+     *
+     * @parameter {Array}: Beinhaltet die RGB Werte
+     * @return {String}: Hexcode der in CSS eingesetzt werden kann
+     */
+
+    function toHex(value) {
+      /*
+       * Konvertiert einen dezimalen Wert zu einer zweistelligen Hexadezimalzahl
+       *
+       * @parameter {Number}: Dezimalwert
+       * @return {String}: Hexadezimalwert
+     */
+      let hex = value.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
+
+    return "#" + toHex(colorValues[0]) + toHex(colorValues[1]) + toHex(colorValues[2]);
+  }
+
+  document.documentElement.style.setProperty('--AnimatedNeoncolor', rgbToHex(rgb));
+  
+  animatedGradient = setTimeout(startAnimatedGradient, timer);
+}
+
+/*** Dropdown-Menü ***/
+function myFunction() {
+  /*
+   * Zeigt und versteckt den Inhalt des Dropdown-Menüs
+   */
+  console.log("TEST");
+  
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+  
+window.onclick = (event) => {
+  /*
+   * Schließt das Dropdown Menü
+   *
+   * @event: Click auf Dropdown Button
+   */
+  if (event.target.matches('.dropbutton')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
