@@ -1,4 +1,4 @@
-/*** Variablen ***/
+﻿/*** Variablen ***/
 var rgb = [255, 0, 0]; //Array mit RGB-Werten für animierten Gradient
 var indexColor = 1; //Index für den Algorithmus des animierten Gradients
 var add = true; //Anweisung für den Algorithmus des animierten Gradients
@@ -95,3 +95,68 @@ window.onclick = (event) => {
   }
 }
 
+/*** Formulardaten ***/
+function addNewEvent() {
+  /*
+   * Kontrolliert die eingegebenen Formulardaten und ruft
+   * weitere Funktionen zur Erstellung eines Events auf
+   */
+  var name = document.forms["input"]["name"].value;
+  var date = document.forms["input"]["date"].value;
+  var text = document.forms["input"]["text"].value;
+
+  function validateInput(name, date) {
+
+    if (name == "") {
+      console.warn("name missing");
+      return false;
+    }
+
+    if (date == "") {
+      console.warn("date missing");
+      return false;
+    }
+
+    return true;
+  }
+
+  if (!(validateInput(name, date))) {
+    console.error("could not process data");
+    return;
+  }
+
+  console.log(name, new Date(date), text);
+}
+
+/*** Formulardaten ***/
+function addNewEvent() {
+  /*
+   * Kontrolliert die eingegebenen Formulardaten und ruft
+   * weitere Funktionen zur Erstellung eines Events auf
+   */
+  var name = document.forms["input"]["name"].value;
+  var date = document.forms["input"]["date"].value;
+  var text = document.forms["input"]["text"].value;
+
+  function validateInput(name, date) {
+
+    if (name == "") {
+      console.warn("name missing");
+      return false;
+    }
+
+    if (date == "") {
+      console.warn("date missing");
+      return false;
+    }
+
+    return true;
+  }
+
+  if (!(validateInput(name, date))) {
+    console.error("could not process data");
+    return;
+  }
+
+  console.log(name, new Date(date), text);
+}
