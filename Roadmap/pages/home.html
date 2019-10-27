@@ -6,19 +6,117 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <link rel="stylesheet" href="../src/style/style.css">
+    <link rel="stylesheet" href="../src/style/home.css">
+    <script src="../src/script/lib.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cousine|Play&display=swap" rel="stylesheet">
 </head>
 <body>
+<div>
 
-    <!-- Dropdown Menü -->
-<div class="dropdown">
-        <div class="backgroundVisierDiv"></div>
-        <button onclick="myFunction()" class="dropbutton" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO.png" alt="Logo???"></button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
+  <header>
+      <h1>Menu</h1>
+      <div>
+          <img class="speechbubbleImg" src="../src/images/speechbubble.png" alt="speechbubble">
+
+          <div  id="speechbubble"> Hallo!</div>
       </div>
+   
+      <img  class="floating" id="alien" src="../src/images/cute-alien.png" alt="alien-avatar">
+
+           
+<script>
+
+  
+window.setInterval(function() {
+  
+
+var textArray = ["Mein Name ist Ali!", "Wähle ein Semester aus!", "Halloooo! Na, du?", "Jetzt drück endlich was...", "Nur noch ... Tage bis zu dein Studium zu Ende ist!"];
+var randomIndex = Math.floor(Math.random() * textArray.length); 
+var randomElement = textArray[randomIndex];
+document.getElementById("speechbubble").innerHTML = randomElement;
+}, 5000);
+
+</script>
+
+      <!--
+      <iframe src="../src/images/spacemusic.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+      </iframe> 
+
+      <audio autoplay loop  id="playAudio">
+          <source src="../src/images/spacemusic.mp3">
+        </audio>
+
+      <script>
+      var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(!isChrome){
+      $('#iframeAudio').remove()
+    }
+  else{
+     $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
+  }
+      </script>
+     -->
+  </header>
+  
+ <article>
+
+
+    <div id="planetsRange">
+        <table class="planettable">
+            <tr>
+              <th onclick ="openRoadmap()" class="hoverzoom"><img id="planet1" class="planets" src="../src/images/planet1.png" alt="planet1"></div></th>
+              <th></th>
+              <th onclick ="openRoadmap()" class="hoverzoom"> <img id="planet3" class="planets" src="../src/images/planet3.png" alt="planet6"></div></th>
+              <th></th>
+              <th onclick ="openRoadmap()" class="hoverzoom"> <img id="planet5" class="planets" src="../src/images/planet5.png" alt="planet5"></div></th>
+              <th></th>
+            </tr>
+            <tr>
+              <td></td>
+              <td onclick ="openRoadmap()" class="hoverzoom"> <img id="planet2" class="planetsRing" src="../src/images/planet2.png" alt="planet2"></div></td>
+              <td></td>
+              <td onclick ="openRoadmap()" class="hoverzoom"> <img id="planet4" class="planetsRing" src="../src/images/planet4.png" alt="planet4"></div></td>
+              <td></td>
+              <td onclick ="openRoadmap()" class="hoverzoom"> <img id="planet6" class="planetsRing" src="../src/images/planet6.png" alt="planet6"></div></td>
+            </tr>
+          </table>
+
+      <script>
+      function openRoadmap(){
+        var roadmap = window.open("roadmap.html");
+      }
+      </script>
+      
+      </div>
+
+       <!-- Dropdown Menü -->
+
+    <div class="dropdown">
+    <div class="backgroundVisierDiv"></div>
+    <button onclick="myFunction()" class="dropbutton" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO.png" alt="Logo???"></button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#"><audio controls autoplay loop  id="playAudio">
+          <source src="../src/images/spacemusic.mp3">
+        </audio></a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+   
+  </div>
+    </div>
+
+ </article>
+
+ 
+<footer>
+
+</footer>
+
+</div>
+
+ 
+
+   
+     
     
 </body>
 </html>

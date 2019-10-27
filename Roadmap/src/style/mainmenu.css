@@ -1,0 +1,13 @@
+.planets{
+    width:10px;
+    margin:0px;
+    padding:0px;
+    position: relative;
+}
+
+.planetsRing{
+    width:20px;
+    margin:0;
+    padding:0;
+    position: relative;
+}

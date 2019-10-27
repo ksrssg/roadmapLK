@@ -1,0 +1,205 @@
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-columns: 175px 1fr;
+}
+
+header {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+article {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    padding: 22px;
+    border-right: none;
+}
+
+aside {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+footer {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+
+.planetsRange{
+    margin-top:300px;
+}
+
+.planets{
+    width:110px;
+    margin:0px;
+    padding:0px;
+    position: relative;
+}
+
+.planetsRing{
+    width:140px;
+    margin:0;
+    padding:0;
+    position: relative;
+}
+
+.planettable{
+    border:0px; 
+    margin-left:50px;
+    margin-top:30px;
+    position: relative;
+    z-index: 1;
+  
+}
+
+.planettable th {
+    padding-top:0;
+    padding:5px;
+    padding-left:50px;
+    padding-right:50px;
+}
+
+.planettable tr {
+    padding:0;
+    margin:0;
+}
+
+#planet1{
+    position: relative;
+    z-index: 2;
+    float: left;
+}
+#planet2{
+    position: relative;
+    z-index: 2;
+    float: left;
+}
+
+#planet3{
+    position: relative;
+    z-index: 2;
+    float: left;
+}
+
+#planet4{
+    position: relative;
+    z-index: 2;
+    float: right;
+}
+
+#planet5{
+    position: relative;
+    z-index: 2;
+    float: right;
+}
+
+#planet6{
+    position: relative;
+    z-index: 2;
+    float: right;
+}
+
+#alien{
+    width:170px;
+    margin-left:550px;
+    position: relative;
+    z-index: 1;
+    
+}
+
+/*alien-floating-around*/
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
+} 
+.speechbubbleImg{
+    width:250px;
+    position: relative;
+    z-index: 1;
+    margin-left:100px;
+}
+
+#speechbubble{
+    
+    font-family: 'Play', sans-serif;
+    font-size: 10px;
+    width:200px;
+    margin:0;
+    position: relative;
+    z-index: 2;
+    float: right;
+}
+
+.bubble{
+    float: right;
+    background-color: #F2F2F2;
+    color:rgb 0,250,154;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px #B2B2B2;
+    height: 200px;
+    margin: 20px;
+    margin-right: 250px;
+    width:  275px;
+    font-family: 'Play', sans-serif;
+    font-size: 40px;
+    
+}
+
+
+.bubble::after {
+background-color: #F2F2F2;
+box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+content: "\00a0";
+display: block;
+height: 20px;
+left: -10px;
+position: relative;
+top: 20px;
+transform:             rotate( 45deg );
+-moz-transform:    rotate( 45deg );
+-ms-transform:     rotate( 45deg );
+-o-transform:      rotate( 45deg );
+-webkit-transform: rotate( 45deg );
+width:  20px;
+}
+
+
+/* zoom when hoven on planets */
+.hoverzoom {
+    height: 100px; 
+    overflow: visible; 
+  }
+  
+.hoverzoom img {
+    transition: transform .5s ease;
+  }
+
+  .hoverzoom:hover img {
+    transform: scale(1.5);
+  }
+
+#playAudio{
+width:50px;
+}
+  
