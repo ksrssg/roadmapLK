@@ -37,7 +37,10 @@ footer {
 
 
 .planetsRange{
-    margin-top:300px;
+   
+  
+    margin-top:350px;
+    margin-bottom:10px;
 }
 
 .planets{
@@ -110,11 +113,14 @@ footer {
     float: right;
 }
 
+
+
 #alien{
     width:170px;
-    margin-left:550px;
-    position: relative;
-    z-index: 1;
+    display: inline;
+    float:right;
+    margin-right:550px;
+    margin-top:20px;
     
 }
 
@@ -133,24 +139,30 @@ footer {
     65%  { transform: translate(0, 15px); }
     to   { transform: translate(0, -0px); }    
 } 
-.speechbubbleImg{
-    width:250px;
-    position: relative;
-    z-index: 1;
-    margin-left:100px;
-}
 
 #speechbubble{
     
+    background-image: url("../images/speechbubble.png");
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:275px;
+    height: 100px;
     font-family: 'Play', sans-serif;
-    font-size: 10px;
-    width:200px;
-    margin:0;
-    position: relative;
-    z-index: 2;
-    float: right;
+    font-size: 10px; 
+    float:left;
+    margin-left: 250px;
+    
+       
 }
 
+#speechbubble div{
+ margin:5px;
+}
+
+  /*CSS-Speechbubble*/
 .bubble{
     float: right;
     background-color: #F2F2F2;
@@ -165,7 +177,6 @@ footer {
     font-size: 40px;
     
 }
-
 
 .bubble::after {
 background-color: #F2F2F2;
@@ -199,7 +210,8 @@ width:  20px;
     transform: scale(1.5);
   }
 
-#playAudio{
-width:50px;
-}
+  #lautsprecher{
+      width:20px;
+  }
+
   

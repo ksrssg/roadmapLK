@@ -1,17 +1,18 @@
-﻿/*** Variablen ***/
-var userdata; //Daten des Users
+﻿var userdata;
+var userliste = "5d9475ff18b9d60017f1de61";
 
 
-var key = "e11b8d8fbab8d6397852f6beae012799";
 
-var userliste = "5db5d0845b5b370017bc1c02";
+//*******************************************************
 
 var item = {
-  "name":"neues Item"
+  "name":"neues Item",
+  "bought":true //true = erledigt
 }
 
 
-/*** Ereignisse ***/
+
+
 function generateEreignis(titel, kategorie, datum, bemerkung) {
   /*
    * Erstellt ein JSON Object das die Eigenschaften eines Ereignisses definiert
@@ -23,7 +24,7 @@ function generateEreignis(titel, kategorie, datum, bemerkung) {
     "titel" : titel,
     "kategorie" : kategorie,
     "datum" : datum,
-    "text" : text
+    "bemerkung" : bemerkung
   }
 
   var ereignis = {
@@ -34,14 +35,81 @@ function generateEreignis(titel, kategorie, datum, bemerkung) {
   return ereignis;
 }
 
+var ereignis1 = generateEreignis("Ereignis1", "Keine", "Heute", "lelele");
+console.log(ereignis1);
 
-/*** HTTP-Anfragen ***/
-function getData(id, callback) {
+
+var inhalt = JSON.parse(ereignis1[name]);
+console.log(inhalt[titel]);
+
+
+/****AUFGABE*****/
+
+var a = [1,2,3,11,12,4,1,14,16];
+
+a.forEach((i) => {
+  if (i >= 10) {
+    console.log(i);
+  }
+});
+
+
+
+
+
+//**********************************
+
+
+
+document.cookie = "username=<>; password=<>;";
+
+
+/* ////Errorhandling ***********************************
+
+Http.onreadystatechange = () => {
+  if (Http.readyState == 4 && Http.status == 200) {
+    userdata =JSON.parse(Http.responseText);
+    if (callback) {
+      callback();
+    }
+  }
+}
+
+Http.onreadystatechange = () => {
+  if (Http.readyState == 4) { //Abgeschlossen
+    if (Http.status == 200) { //Erfolgreich
+      userdata = JSON.parse(Http.responseText);
+      if (callback) {
+        callback();
+      }
+    } else {
+      console.error("Http Anfrage konnte nicht bearbeitet werden");
+    }
+  }
+}
+
+*/
+
+
+
+
+
+getUserdata(userliste, false);
+//addItem(userliste, item);
+//console.log(userdata["items"][0]["name"]);
+
+
+
+
+//************** Fertige Funktionen*****************//
+
+
+function getUserdata(id, callback) {
   /*
    * Sendet eine HTTP Anfrage an das Backend und fordert eine aktuelle Liste an
    *
    * !Asynchrone Funktion, es kann ein Callback übergeben werden
-   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   * !Funktion hat kein Error Handling
    *
    * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
    * @callback {Function oder Boolean}
@@ -60,19 +128,16 @@ function getData(id, callback) {
     }
   }
 
-  Http.onerror = () => {
-    console.error("HttpRequest fehlgeschlagen");
-  }
-
   Http.send();
 }
+
 
 function addItem(id, item, callback) {
   /*
    * Sendet eine HTTP Anfrage an das Backend und fügt ein Item zu der Liste hinzu
    *
    * !Asynchrone Funktion, es kann ein Callback übergeben werden
-   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   * !Funktion hat kein Error Handling
    *
    * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
    * @parameter {JSON Object}: Item, das der Liste hinzugefügt werden soll
@@ -94,19 +159,16 @@ function addItem(id, item, callback) {
     }
   }
 
-  Http.onerror = () => {
-    console.error("HttpRequest fehlgeschlagen");
-  }
-
   Http.send(data);
 }
+
 
 function deleteItem(id, itemid, callback) {
   /*
    * Sendet eine HTTP Anfrage an das Backend und fügt ein Item zu der Liste hinzu
    *
    * !Asynchrone Funktion, es kann ein Callback übergeben werden
-   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   * !Funktion hat kein Error Handling
    *
    * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
    * @parameter {String}: ID des Items, das aus der Liste gelöscht werden soll
@@ -126,9 +188,5 @@ function deleteItem(id, itemid, callback) {
     }
   }
 
-  Http.onerror = () => {
-    console.warn("HttpRequest fehlgeschlagen");
-  }
-
-  Http.error();
+  Http.send();
 }

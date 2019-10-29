@@ -16,19 +16,18 @@
   <header>
       <h1>Menu</h1>
       <div>
-          <img class="speechbubbleImg" src="../src/images/speechbubble.png" alt="speechbubble">
-
-          <div  id="speechbubble"> Hallo!</div>
-      </div>
-   
-      <img  class="floating" id="alien" src="../src/images/cute-alien.png" alt="alien-avatar">
-
+           <div id="speechbubble" class="floating"> Hallo!</div>
+           <img  class="floating" id="alien" src="../src/images/cute-alien.png" alt="alien-avatar">
+     </div>
+      
            
 <script>
-
+ //Auto-play von spaceaudio nach einer Sekunde 
+window.setInterval(function() {
+  var myaudio = document.getElementById("playAudio").play();
+}, 1000);
   
 window.setInterval(function() {
-  
 
 var textArray = ["Mein Name ist Ali!", "Wähle ein Semester aus!", "Halloooo! Na, du?", "Jetzt drück endlich was...", "Nur noch ... Tage bis zu dein Studium zu Ende ist!"];
 var randomIndex = Math.floor(Math.random() * textArray.length); 
@@ -38,14 +37,33 @@ document.getElementById("speechbubble").innerHTML = randomElement;
 
 </script>
 
-      <!--
+
+
+    <!--
       <iframe src="../src/images/spacemusic.mp3" allow="autoplay" style="display:none" id="iframeAudio">
       </iframe> 
-
-      <audio autoplay loop  id="playAudio">
+-->  <!--
+      <audio controls autoplay loop  id="playAudio">
           <source src="../src/images/spacemusic.mp3">
-        </audio>
+      </audio>
 
+      <script>
+
+        
+window.onload = function () {
+  start(); 
+}
+
+
+
+        function start() {
+          var audio = new Audio("../src/images/spacemusic.mp3");
+          audio.play();
+        }
+
+        
+      </script> -->
+<!--
       <script>
       var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
     if(!isChrome){
@@ -95,12 +113,19 @@ document.getElementById("speechbubble").innerHTML = randomElement;
     <div class="backgroundVisierDiv"></div>
     <button onclick="myFunction()" class="dropbutton" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO.png" alt="Logo???"></button>
     <div id="myDropdown" class="dropdown-content">
-      <a href="#"><audio controls autoplay loop  id="playAudio">
+      <a href="#"><audio   autoplay="autoplay" loop id="playAudio">
           <source src="../src/images/spacemusic.mp3">
         </audio></a>
       <a href="#">Link 2</a>
       <a href="#">Link 3</a>
    
+<script>
+  //TEST FÜR AUTOPLAY
+  
+
+
+</script>
+
   </div>
     </div>
 
