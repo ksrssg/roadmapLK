@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cousine|Play&display=swap" rel="stylesheet">
 
     <script src="../src/script/lib.js"></script>
+    <script src="../src/script/roadmap.js"></script>
 </head>
 <body>
 
@@ -28,33 +29,44 @@
 
 
 
-<h1>Roadmap</h1>
+<h1 id="headline">Roadmap</h1>
 
-<ul id="roadmap">
-    <li><span>21.01.2011: Klausur Wirtschaft</span><br>lelele lelele lelele lelele <a href="">jejeje</a></li>
-    <li><span>21.01.2011: Klausur Wirtschaft</span><br>lelele lelele lelele lelele</li>
-    <li><span>21.01.2011: Klausur Wirtschaft</span><br>lelele lelele lelele lelele</li>
-</ul>
+<main>
 
 
-<div id="interface">
+    <ul id="roadmap">
+        <li><span>21.01.2011: Klausur Wirtschaft</span><br>lelele lelele lelele lelele <a href="">jejeje</a></li>
+        <li><span>21.01.2011: Klausur Wirtschaft</span><br>lelele lelele lelele lelele</li>
+        <li><span>21.01.2011: Klausur Wirtschaft</span><br>lelele lelele lelele lelele</li>
+    </ul>
+    
+    
+    <div id="interface">
+    
+      <form id="input">
+    
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Name">
+    
+        <label for="date">Fälligkeitsdatum</label>
+        <input type="date" name="date" placeholder="TT.MM.JJJJ">
+    
+        <label for="text">Beschreibung</label>
+        <input type="text" name="text" placeholder="Beschreibung (Optional)">
+    
+        <button type="button" onclick="addNewEvent()">Hinzufügen</button>
+    
+      </form>
+    
+    </div>
+    
+    <p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p>
+    
+    
 
-  <form id="input">
 
-    <label for="name">Name</label>
-    <input type="text" name="name" placeholder="Name">
 
-    <label for="date">Fälligkeitsdatum</label>
-    <input type="date" name="date" placeholder="TT.MM.JJJJ">
-
-    <label for="text">Beschreibung</label>
-    <input type="text" name="text" placeholder="Beschreibung (Optional)">
-
-    <button type="button" onclick="addNewEvent()">Hinzufügen</button>
-
-  </form>
-
-</div>
+</main>
 
 
 

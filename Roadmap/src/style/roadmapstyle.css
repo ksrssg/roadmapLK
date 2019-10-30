@@ -12,6 +12,9 @@ div#interface {
     border-radius: 15px;
 }
 
+h1 span {
+    color: var(--AnimatedNeoncolor);
+}
 
 /*** ROADMAP DESIGN ***/
 ul#roadmap {

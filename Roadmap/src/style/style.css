@@ -1,7 +1,7 @@
 /*** Reset CSS & General Settings ***/
 * {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 }
 
 :root {
@@ -17,21 +17,36 @@ html, body {
   width: 100%;
   height: 100%;
   background-image: url("../images/stars_space_galaxy.jpg");
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover ;
   background-attachment: fixed;
 }
 
 h1 {
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
   font-family: 'Play', sans-serif;
-  color:white;
-  font-size:100px;
+  color: white;
+  font-size: 75px;
   text-align: center;
+  border-bottom: 1.5px solid;
+  border-image: linear-gradient(90deg, rgba(0,250,154,0) 20%, rgba(0,250,154,1) 50%, rgba(0,250,154,0) 80%) 1;
+}
+
+main {
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow-y: scroll;
 }
 
 p {
   font-family: 'Cousine', monospace;
-  color:white;
+  color: white;
   font-size: 25px;
 }
 
@@ -66,11 +81,11 @@ a:visited {
 /*** Dropdown Button ***/
 .dropbutton {
   outline: none;
-  border:none;
-  background-color:transparent;
-  padding:20px;
-  margin:0px;
-  margin-bottom:1px;
+  border: none;
+  background-color: transparent;
+  padding: 20px;
+  margin: 0px;
+  margin-bottom: 1px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -79,8 +94,8 @@ a:visited {
 .backgroundVisierDiv {
   padding:0;
   margin-left: 40px;
-  margin-top:50px;
-  width:50px;
+  margin-top: 50px;
+  width: 50px;
   height: 50px;
   background-color: var(--AnimatedNeoncolor);
   position: absolute;
@@ -94,8 +109,8 @@ a:visited {
 /* dropdown button position*/
 .dropdown {
   position: fixed;
-  right: 15px;
-  top: 15px;
+  right: 10px;
+  top: 10px;
   z-index: 100;
 }
   
@@ -113,9 +128,9 @@ a:visited {
   
 /* Subsites bei Dropdown*/
 .dropdown-content a {
-  color:white;
+  color: white;
   text-align: center;
-  padding:5px;
+  padding: 5px;
   text-decoration: none;
   display: block;
 }

@@ -1,3 +1,4 @@
+/*
 .container {
     height: 100vh;
     display: grid;
@@ -34,6 +35,8 @@ footer {
     grid-row-start: 3;
     grid-row-end: 3;
 }
+
+*/
 
 
 .planetsRange{
@@ -78,6 +81,7 @@ footer {
     margin:0;
 }
 
+/*
 #planet1{
     position: relative;
     z-index: 2;
@@ -112,6 +116,7 @@ footer {
     z-index: 2;
     float: right;
 }
+*/
 
 
 
@@ -202,11 +207,11 @@ width:  20px;
     overflow: visible; 
   }
   
-.hoverzoom img {
+.hoverzoom {
     transition: transform .5s ease;
   }
 
-  .hoverzoom:hover img {
+  .hoverzoom:hover {
     transform: scale(1.5);
   }
 
