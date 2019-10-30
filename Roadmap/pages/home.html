@@ -37,43 +37,6 @@ document.getElementById("speechbubble").innerHTML = randomElement;
 
 </script>
 
-
-
-    <!--
-      <iframe src="../src/images/spacemusic.mp3" allow="autoplay" style="display:none" id="iframeAudio">
-      </iframe> 
--->  <!--
-      <audio controls autoplay loop  id="playAudio">
-          <source src="../src/images/spacemusic.mp3">
-      </audio>
-
-      <script>
-
-        
-window.onload = function () {
-  start(); 
-}
-
-
-
-        function start() {
-          var audio = new Audio("../src/images/spacemusic.mp3");
-          audio.play();
-        }
-
-        
-      </script> -->
-<!--
-      <script>
-      var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    if(!isChrome){
-      $('#iframeAudio').remove()
-    }
-  else{
-     $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
-  }
-      </script>
-     -->
   </header>
   
  <article>
@@ -113,7 +76,7 @@ window.onload = function () {
     <div class="backgroundVisierDiv"></div>
     <button onclick="myFunction()" class="dropbutton" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO.png" alt="Logo???"></button>
     <div id="myDropdown" class="dropdown-content">
-      <a href="#"><audio   autoplay="autoplay" loop id="playAudio">
+      <a href="#"><audio controls autoplay="autoplay" loop id="playAudio">
           <source src="../src/images/spacemusic.mp3">
         </audio></a>
       <a href="#">Link 2</a>
