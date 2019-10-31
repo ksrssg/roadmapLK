@@ -70,13 +70,11 @@ function startAnimatedGradient() {
 /*** PAGE INTERAKTIVITY ***/
 function openRoadmap(id) {
   /* 
-   * open roadmap suppage and safes the SemesterID in local storage
+   * open roadmap suppage and adds the SemesterID as parameter in URL
    *
    * @parameter {String}: ID of Semester
    */
-  localStorage.setItem("semesterID", id);
-  console.log(id);
-  window.open("roadmap.html");
+  window.open("roadmap.html?id=" + id);
 }
 
 /*** Dropdown-Menü ***/
@@ -197,7 +195,7 @@ function getData(id, callback) {
 
   Http.onreadystatechange = () => {
     if (Http.readyState == 4 && Http.status == 200) {
-      userdata =JSON.parse(Http.responseText);
+      userdata = JSON.parse(Http.responseText);
       if (callback) {
         callback();
       }
