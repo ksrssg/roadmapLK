@@ -50,19 +50,19 @@ p {
   font-size: 25px;
 }
 
-a:link {
+a:link, .interactive {
   color: mediumspringgreen;
   text-decoration: none;
   cursor: pointer;
 }
 
-a:hover {
+a:hover, .interactive:hover {
   color: mediumspringgreen;
   text-decoration: underline;
   cursor: pointer;
 }
 
-a:active {
+a:active, .interactive:active {
   color: darkorange;
   text-decoration: underline;
   cursor: pointer;

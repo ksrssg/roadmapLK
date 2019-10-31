@@ -1,17 +1,4 @@
 /*** GENERAL PAGE LAYOUT & DESIGN ***/
-div#interface {
-    position: fixed;
-    right: 100px;
-    top: 100px;
-    z-index: 100;
-    width: fit-content;
-    height: fit-content;
-    padding: 15px;
-    background-color: rgba(30,30,30,0.7);
-    border: #3c3c3c 1px solid;
-    border-radius: 15px;
-}
-
 h1 span {
     color: var(--AnimatedNeoncolor);
 }
@@ -31,10 +18,27 @@ ul#roadmap > li {
 
 ul#roadmap > li span {
     font-weight: bold;
-    font-size: larger;
+    font-size: 20px;
 }
 
-/*** INPUT FORM ***/ 
+ul#roadmap > li span span {
+    font-size: 13px;
+}
+
+/*** INPUT FORM ***/
+div#interface {
+    position: fixed;
+    right: 100px;
+    top: 100px;
+    z-index: 100;
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    background-color: rgba(30,30,30,0.7);
+    border: #3c3c3c 1px solid;
+    border-radius: 15px;
+}
+
 form {
     width: 400px;
 }
@@ -56,9 +60,18 @@ form > input {
     border: none;
 }
 
-form > input:focus, form > textarea:focus, form > button:focus {
+form > input:focus, form > textarea:focus, form > button:hover {
     outline-color: mediumspringgreen;
     box-shadow: 0 0 10px mediumspringgreen;
+}
+
+form > button:focus {
+    outline: 0;
+}
+
+form > button:active {
+    outline-color: darkorange;
+    box-shadow: 0 0 10px darkorange;
 }
 
 ::placeholder {
@@ -75,11 +88,17 @@ input[name="text"] {
 
 form button {
     float: right;
+    margin: 10px 0 0 5px;
     margin-top: 10px;
     padding: 3px;
     color: white;
     background-color: rgb(39, 39, 39);
     border: none;
+}
+
+div#addButton {
+    color: var(--AnimatedNeoncolor);
+    font-size: 100px;
 }
 
 
@@ -88,4 +107,23 @@ form button {
     div#interface {
         display: none;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** FORMS */
+
+div#interface{
+    display: none;
 }
