@@ -13,6 +13,8 @@
 
     <script src="../src/script/lib.js"></script>
     <script src="../src/script/roadmap.js"></script>
+
+    <link rel="shortcut icon" href="../src/images/astronaut_PIXEL_LOGO_2.png" /> 
 </head>
 <body>
 
@@ -32,46 +34,46 @@
 <h1 id="headline">Roadmap</h1>
 
 <main>
-  
+
   <ul id="roadmap"></ul>
-    
-    
+
+
   <div id="interface">
-    
+
     <form id="addEvent">
-    
+
         <label for="name">Name</label>
         <input type="text" name="name" placeholder="Name">
-    
+
         <label for="date">Fälligkeitsdatum</label>
         <input type="date" name="date" placeholder="TT.MM.JJJJ">
-    
+
         <label for="text">Beschreibung</label>
         <input type="text" name="text" placeholder="Beschreibung (Optional)">
-    
+
         <button type="button" onclick="addNewEvent()">Hinzufügen</button>
-    
+
     </form>
-    
+
     <form id="editEvent">
 
           <label for="name">Name</label>
           <input type="text" name="name" placeholder="Name">
-      
+
           <label for="date">Fälligkeitsdatum</label>
           <input type="date" name="date" placeholder="TT.MM.JJJJ">
-      
+
           <label for="text">Beschreibung</label>
           <input type="text" name="text" placeholder="Beschreibung (Optional)">
-      
-          <button type="button" onclick="safeChanges()">Speichern</button>          
+
+          <button type="button" onclick="safeChanges()">Speichern</button>
           <button name="doneButton" type="button" onclick="markAsDone()">Erledigt</button>
           <button type="button" onclick="deleteEvent()">Löschen</button>
-        
+
     </form>
-    
+
   </div>
-  
+
   <div onclick="addEvent()" id="addButton" class="interactiveElement">+</div>
 
 

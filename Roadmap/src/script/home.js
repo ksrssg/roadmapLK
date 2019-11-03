@@ -1,22 +1,22 @@
+window.onload = () => {
+   /*
+    * update listIDs
+    */
+  getAllLists(false);
+}
+
 function openRoadmap(id) {
-        /* 
-         * open roadmap suppage and adds the SemesterID and ListID as parameters in URL
-         *
-         * @parameter {String}: ID of Semester
-         * @return {}
-         */
-        //window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[id.charAt(id.length-1)]);
-        window.open("roadmap.html?id=" + id);
-    } 
+  /* 
+   * open roadmap suppage and adds the SemesterID and ListID as parameters in URL
+   *
+   * @parameter {String}: ID of Semester
+   * @return {}
+   */
+  window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[id.charAt(id.length-1)]);
+}
 
-    window.onload = () => {
-            /*
-             * update listIDs
-             */
-            getAllLists(false);
-        } 
 
-      
+
     function changesemestertext(id) {
 
         document.getElementById("speechbubble").innerHTML = "Semester " + id.charAt(id.length-1);
@@ -62,17 +62,17 @@ function openRoadmap(id) {
    }
 
 
- //Auto-play von spaceaudio nach einer Sekunde 
+ //Auto-play von spaceaudio nach einer Sekunde
  var myVar = setInterval(myTimer, 1000);
  function myTimer() {
  document.getElementById("playAudio").play();
  }
 
-    
+
   window.setInterval(function() {
 
   var textArray = ["Mein Name ist Alley!", "Wähle ein Semester aus!", "Halloooo! Na, du?", "Jetzt drück endlich was...", "Nur noch ... Tage bis zu dein Studium zu Ende ist!"];
-  var randomIndex = Math.floor(Math.random() * textArray.length); 
+  var randomIndex = Math.floor(Math.random() * textArray.length);
   var randomElement = textArray[randomIndex];
   document.getElementById("speechbubble").innerHTML = randomElement;
   }, 8000);
@@ -82,7 +82,7 @@ function audioPlaying() {
 var myAudio = document.getElementById('playAudio');
 
 if (myAudio.duration > 0 && !myAudio.paused) {
- 
+
     clearInterval(myVar);
     document.getElementById("playAudio").pause();
 
