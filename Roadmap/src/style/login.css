@@ -1,10 +1,17 @@
-body {
-    overflow-x: hidden;
+
+p {
+    margin-top:10px;
+    margin-left:250px;
+    font-size: 10px;
+    font-family: 'Play', sans-serif;
+    color: mediumspringgreen;
 }
 
-#main {
-    margin-top: 30px;
+
+.main {
+    margin-top: 15px;
     text-align: center;
+    overflow-y: hidden;
 }
 
 #anmeldeBtn {
@@ -22,6 +29,7 @@ body {
 }
 
 form {
+    margin:0;
     width: 400px;
     display: inline-block;
 }
@@ -52,19 +60,20 @@ form > input:focus, form > textarea:focus, form > button:hover {
 /* Animation */
 
 /* Startpositionen */
-.winterframe { 
+.spaceframe { 
     position: relative; 
     width: 300px; 
     height: 165px; 
     background:rgb(44, 44, 44); 
     margin: 1em auto; 
+    margin-top:0;
     overflow: hidden; 
     border-top-left-radius: 300px; 
     border-top-right-radius: 300px; 
     border: 2px solid gainsboro
 }
 
-.winterframe img { 
+.spaceframe img { 
     position: absolute; 
 }
 
@@ -96,12 +105,12 @@ form > input:focus, form > textarea:focus, form > button:hover {
     height: auto; 
     animation: mond 30s infinite reverse linear; 
 }
-.loko { 
+.alien { 
     width: 20%; 
     height: auto; 
-    bottom: 10px; 
+    bottom: 50px; 
     right: 20%; 
-    animation: loko 10s linear infinite;
+    animation: alien 10s linear infinite;
 
 }
 
@@ -124,7 +133,7 @@ form > input:focus, form > textarea:focus, form > button:hover {
 }
 
 @keyframes mond {
-	from { transform: translate(-60%) scale(0.7)}
+	from { transform: translate(-60%) scale(0.7);}
 	to { transform: translate(300%)}
 }
 
@@ -133,7 +142,7 @@ form > input:focus, form > textarea:focus, form > button:hover {
 	to {transform:translate(-200px,-100px)}
 }
 
-@keyframes loko {
+@keyframes alien {
 	25% {transform:rotate(5deg)}
 	50% {transform:rotate(-5deg)}
 	75% {transform:rotate(5deg)}
@@ -141,7 +150,7 @@ form > input:focus, form > textarea:focus, form > button:hover {
 }
 
 @media (min-width: 480px) {
-	.winterframe { width: 450px; height: 242px; }
+	.spaceframe { width: 450px; height: 242px; }
 	.landschaft1 { width: 450px; height: 242px; }
 	.landschaft2 { width: 450px; height: 242px; }
 	.sterne1 { width: 450px; height: 150px; }
@@ -149,11 +158,41 @@ form > input:focus, form > textarea:focus, form > button:hover {
 }
 
 @media (min-width: 980px) {
-	.winterframe { width: 600px; height: 330px; }
+	.spaceframe { width: 600px; height: 330px; }
 	.landschaft1 { width: 600px; height: 330px; }
 	.landschaft2 { width: 600px; height: 330px; }
 	.sterne1 { width: 600px; height: 200px; }
 	.sterne2 { width: 600px; height: 200px; }
-	.loko { bottom: 20px;}
+	.alien { bottom: 50px;}
 	.qualm { bottom: 90px;}
+}
+
+/*Avatar Generieren*/
+
+h2 {
+    margin-top:150px;
+    font-size: 100px;
+    font-family: 'Play', sans-serif;
+    color: mediumspringgreen;
+}
+
+
+#schaltflaeche {
+    display:inline-block;
+}
+
+#avatar {
+    width: 400px;
+}
+
+#leftButton {
+    position: relative;
+    float:left;
+    margin-left:200px;
+}
+
+#rightButton {
+    position: relative;
+    float:right;
+    margin-right:200px;
 }
