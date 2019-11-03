@@ -23,55 +23,27 @@
 
     <div id="alien-avatar" class="floating">
       <div id="speechbubble"> Hallo!</div>
-      <img   id="alien" src="../src/images/alien.png" alt="alien-avatar">
+      <img id="alien" src="../src/images/alien.png" alt="alien-avatar">
     </div>
-
-
-            <table class="planettable">
-                <tr>
-                  <td><img id="semester1" class="planets interactiveElement" src="../src/images/planet1.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1"></div></td>
-                  <td></td>
-                  <td><img id="semester3" class="planets interactiveElement" src="../src/images/planet3.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout= "changetextback()" alt="planet6"></div></td>
-                  <td></td>
-                  <td><img id="semester5" class="planets interactiveElement" src="../src/images/planet5.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet5"></div></td>
-                  <td></td>
-                  <td><img id="semesterAdd" class="planets interactiveElement" src="../src/images/planetAdd.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet5"></div></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td><img id="semester2" class="planetsRing interactiveElement" src="../src/images/planet2.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet2"></div></td>
-                  <td></td>
-                  <td><img id="semester4" class="planetsRing interactiveElement" src="../src/images/planet4.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet4"></div></td>
-                  <td></td>
-                  <td><img id="semester6" class="planetsRing interactiveElement" src="../src/images/planet6.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet6"></div></td>
-                </tr>
-            </table>
-
-
-
+    
+    <table id="planetTable">
+      <tr id="odd"></tr>
+      <tr id="even"></tr>
+    </table>
+  
   </main>
-<!--
-  <audio controls autoplay="autoplay" loop id="playAudio">
-    <source src="../src/images/spacemusic.mp3">
-  </audio>
--->
-    <!-- Dropdown Menü -->
 
-
-    <div class="dropdown">
-          <div class="backgroundVisierDiv"></div>
-          <button onclick="myFunction()" class="dropbutton interactiveElement" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="#"><audio controls autoplay="autoplay" loop id="playAudio">
-              <source src="../src/images/spacemusic.mp3">
-            </audio> <img id="lautsprecher" src="../src/images/speaker.png" alt="lautsprecher" onclick="audioPlaying()"> </a>
-            <a href="home.html">Home</a>
-            <a href="#">Settings</a>
-            <a href="#">Impressum</a>
-
-          </div>
+  <!-- Dropdown Menü -->
+  <div class="dropdown">
+    <div class="backgroundVisierDiv"></div>
+    <button onclick="myFunction()" class="dropbutton interactiveElement" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#"><audio controls autoplay="autoplay" loop id="playAudio"><source src="../src/images/spacemusic.mp3"></audio> <img id="lautsprecher" src="../src/images/speaker.png" alt="lautsprecher" onclick="audioPlaying()"></a>
+      <a href="home.html">Home</a>
+      <a href="#">Settings</a>
+      <a href="#">Impressum</a>
     </div>
-
+  </div>
 
 </body>
 </html>

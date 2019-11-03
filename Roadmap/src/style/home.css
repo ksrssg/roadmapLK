@@ -1,74 +1,49 @@
-/*
-#planetsRange{
-    background-image: url("../images/milchstrasse.png");
-    background-repeat:no-repeat;
-    background-size: 100% 100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top:0;
- 
-}
-*/
 .main {
     text-align: center;
 }
 
 .planets{
-    width:110px;
-    margin:0px;
-    padding:0px;
+    width: 110px;
+    margin: 0px;
+    padding: 0px;
     position: relative;
    
 }
 
 .planetsRing {
-    width:140px;
-    margin:0;
-    padding:0;
+    width: 140px;
+    margin: 0;
+    padding: 0;
     position: relative;
 }
 
-
-
-.planettable {
+table#planetTable {
     text-align: center;
     justify-content: center;
-    border:0px; 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:250px;
+    width: 100%;
+    border: 0px; 
+    margin-top: 250px;
     position: relative;
-    z-index: 1;
-
     background-image: url("../images/milchstrasse.png");
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
-    
-  
 }
 
-.planettable td {
-    padding-top:0;
-    padding:5px;
-    padding-left:50px;
-    padding-right:50px;
+#planetTable td {
+    padding: 5px 50px;
 }
 
 #alien-avatar {
     position: fixed;
 }
 
-
-#alien{
-    padding:0;
-    width:170px;
+#alien {
+    padding: 0;
+    width: 170px;
     display: block;
-    margin-right:auto;
-    margin-right:auto;
-    margin-top:10px;
-    
+    margin-right: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
 
 /*alien-floating-around*/
@@ -89,114 +64,68 @@
 
 #speechbubble {
     background-image: url("../images/speechbubble.png");
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width:275px;
+    width: 275px;
     height: 100px;
     font-family: 'Play', sans-serif, bold;
     font-size: 15px; 
     text-align: center;
-    float:left;
+    float: left;
     margin-left: 250px;
-    padding:10px; 
+    padding: 10px; 
 }
 
 /* zoom when hoven on planets */
-table.planettable {
-    width: 100%;
-}
-
-table.planettable td img {
+table#planetTable td img {
     height: 100px; 
     overflow: visible;
     transition: transform .5s ease;
 }
 
-table.planettable td img:hover {
+table#planetTable td img:hover {
     transform: scale(1.5);
 }
 
-  #lautsprecher{
-      width:20px;
-  }
-
-  #playAudio {
+#lautsprecher{
     width:20px;
-      height:20px;
-  }
+}
 
-  @media (max-width:1250px) {
-      #speechbubble{
-         visibility:hidden;
-      }
-  }
+#playAudio {
+    width:20px;
+    height:20px;
+}
 
-  @media (max-width: 1100px){
-      .planettable {
+@media (max-width: 1250px) {
+    #speechbubble {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 810px){
+    table#planetTable {
         transform: rotate(90deg);
-        margin:0 auto;
         display: inline-block;
-       
-       
-      }
-
-      /*
-      #planetsRange {
-          background-image: none;
-      }
-      */
-
-      .planetsRing {
-        transform: rotate(270deg);
-      }
-
-      .planets {
-        transform: rotate(270deg);
-      }
-
-
-      table.planettable td img {
-        height: 100px; 
+        background-image: none;
+    }
+    
+    table#planetTable td img {
         overflow: visible;
+        transform: rotate(270deg);
+        height: 100px; 
         transition: transform .5s ease;
     }
     
-    table.planettable td img:hover {
+    table#planetTable td img:hover {
         transform: scale(1.5) rotate(270deg);
     }
-
-   
-  }
-
- 
-
-  /*Bewegter Hitnergrund*/
-/*.pano { position: relative; width: 300px; height: 68px; overflow: hidden; margin: 1em auto}
-
-.pano img {position:absolute; width: 300px; height: 68px }
-.pano img.img1 {  animation: loop1 18s infinite reverse linear; }
-.pano img.img2 {  animation: loop2 18s infinite reverse linear; }
-
-@keyframes loop1 {
-   from { left: -100%; }
-   to { left: 0px; }
 }
 
-@keyframes loop2 {
-   from { left: 0px; }
-   to { left: 100%; }
+@media (max-width: 600px) {
+    #alien-avatar {
+        visibility: hidden;
+    }
 }
-	
-@media (min-width:480px) {
-   .pano { width: 450px; height: 102px; }
-   .pano img { width: 450px; height: 102px }
-}
-
-@media (min-width:980px) {
-   .pano { width: 600px; height: 136px;}
-   .pano img { width: 600px; height: 136px }
-
-*/

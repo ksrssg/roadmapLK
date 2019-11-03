@@ -1,4 +1,4 @@
-﻿/*** Variables ***/
+﻿﻿/*** Variables ***/
 var rgb = [255, 0, 0]; //Array mit RGB-Werten für animierten Gradient
 var indexColor = 1; //Index für den Algorithmus des animierten Gradients
 var add = true; //Anweisung für den Algorithmus des animierten Gradients
@@ -6,6 +6,8 @@ var timer = 1; //Timer des animierten Gradients
 
 var listIDs = []; //array with IDs to all lists in backend
 var semesterData; //userdata of specific semester
+
+var avatarPath = "../src/images/alien.png";
 
 
 //*********************************************************/
@@ -75,7 +77,7 @@ function startAnimatedGradient() {
 
 
 
-/*** dropdown menues ***/
+/*** dropdown menue ***/
 function myFunction() {
   /*
    * Zeigt und versteckt den Inhalt des Dropdown-Menüs
@@ -102,11 +104,6 @@ window.onclick = (event) => {
     }
   }
 }
-
-
-
-
-
 
 /*** events ***/
 function generateEvent(titel, date, text, done) {
@@ -326,6 +323,76 @@ function getAllLists(callback) {
     if (request.readyState == 4 && request.status == 200) {
       var answer = JSON.parse(request.responseText);
       listIDs = sortSemester(answer);
+      if (callback) {
+        callback();
+      }
+    }
+  }
+
+  request.onerror = () => {
+    console.warn("HTTP request failed");
+  }
+
+  request.send();
+}
+
+function createNewList(name, callback) {
+  /*
+   * Sendet eine HTTP Anfrage an das Backend und fordert eine Liste an
+   *
+   * !Asynchrone Funktion, es kann ein Callback übergeben werden
+   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   *
+   * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
+   * @callback {Function oder Boolean}
+   * @return {}: die Methode aktualisiert "semesterData"
+   */
+  var request = new XMLHttpRequest();
+  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists';
+  request.open("POST", url);
+  request.setRequestHeader("Authorization", key);
+  request.setRequestHeader("Content-type", "application/json");
+  var item = { 
+    "name" : name
+  };
+  var data = JSON.stringify(item);
+
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      if (callback) {
+        getAllLists(callback);
+      } else {
+        getAllLists(false);
+      }
+    }
+  }
+
+  request.onerror = () => {
+    console.warn("HTTP request failed");
+  }
+
+  request.send(data);
+}
+
+function deleteList(id, callback) {
+  /*
+   * Sendet eine HTTP Anfrage an das Backend und fordert eine Liste an
+   *
+   * !Asynchrone Funktion, es kann ein Callback übergeben werden
+   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   *
+   * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
+   * @callback {Function oder Boolean}
+   * @return {}: die Methode aktualisiert "semesterData"
+   */
+  var request = new XMLHttpRequest();
+  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id;
+  request.open("DELETE", url);
+  request.setRequestHeader("Authorization", key);
+
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      getAllLists(false);
       if (callback) {
         callback();
       }
