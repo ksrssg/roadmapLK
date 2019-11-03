@@ -32,17 +32,13 @@
 <h1 id="headline">Roadmap</h1>
 
 <main>
-
-    <ul id="roadmap">
-        <li id="test"><span>21.01.2011: Klausur Wirtschaft <span>[<span class="interactive" onclick="edit(this.closest('li').id)">EDIT</span>]</span></span><br>lelele lelele lelele lelele</li>
-        <li id="test23"><span>21.01.2011: Klausur Wirtschaft <span>[<span class="interactive" onclick="edit(this.closest('li').id)">EDIT</span>]</span></span><br>lelele lelele lelele lelele</li>
-        <li id="test3"><span>21.01.2011: Klausur Wirtschaft <span>[<span class="interactive" onclick="edit(this.closest('li').id)">EDIT</span>]</span></span><br>lelele lelele lelele lelele</li>
-    </ul>
+  
+  <ul id="roadmap"></ul>
     
     
-    <div id="interface">
+  <div id="interface">
     
-      <form id="addEvent">
+    <form id="addEvent">
     
         <label for="name">Name</label>
         <input type="text" name="name" placeholder="Name">
@@ -55,9 +51,9 @@
     
         <button type="button" onclick="addNewEvent()">Hinzufügen</button>
     
-      </form>
-
-      <form id="editEvent">
+    </form>
+    
+    <form id="editEvent">
 
           <label for="name">Name</label>
           <input type="text" name="name" placeholder="Name">
@@ -68,20 +64,15 @@
           <label for="text">Beschreibung</label>
           <input type="text" name="text" placeholder="Beschreibung (Optional)">
       
-          <button type="button" onclick="safeChanges()">Speichern</button>
+          <button type="button" onclick="safeChanges()">Speichern</button>          
+          <button name="doneButton" type="button" onclick="markAsDone()">Erledigt</button>
           <button type="button" onclick="deleteEvent()">Löschen</button>
-          <button type="button" onclick="markAsDone()">Erledigt</button>
         
-      </form>
+    </form>
     
-    </div>
-
-    <div onclick="addEvent()" id="addButton" class="interactiveElement">+</div>
-    
-    <p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p><p>sdsd</p>
-    
-    
-
+  </div>
+  
+  <div onclick="addEvent()" id="addButton" class="interactiveElement">+</div>
 
 
 </main>

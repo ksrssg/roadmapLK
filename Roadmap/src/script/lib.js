@@ -1,10 +1,16 @@
-﻿/*** Variablen ***/
+﻿/*** Variables ***/
 var rgb = [255, 0, 0]; //Array mit RGB-Werten für animierten Gradient
 var indexColor = 1; //Index für den Algorithmus des animierten Gradients
 var add = true; //Anweisung für den Algorithmus des animierten Gradients
 var timer = 1; //Timer des animierten Gradients
 
+var listIDs = []; //array with IDs to all lists in backend
+var semesterData; //userdata of specific semester
 
+
+//*********************************************************/
+var key = "e11b8d8fbab8d6397852f6beae012799";
+//*********************************************************/
 
 /*** Animierter Gradient ***/
 var animatedGradient; //Animierter Gradient
@@ -13,9 +19,9 @@ function startAnimatedGradient() {
   /*
    * Berechnet die Farbwerte des Gradients
    * Funktion wird durch das Interval {timer} neu aufgerufen
-   * 
-   * -> Starten: startAnimatedGradient()
-   * -> Beenden: clearTimeout(animatedGradient)
+   *
+   * -> start: startAnimatedGradient()
+   * -> terminate: clearTimeout(animatedGradient)
    */
 
   if (add) {
@@ -63,20 +69,22 @@ function startAnimatedGradient() {
   }
 
   document.documentElement.style.setProperty('--AnimatedNeoncolor', rgbToHex(rgb));
-  
+
   animatedGradient = setTimeout(startAnimatedGradient, timer);
 }
 
-/*** Dropdown-Menü ***/
+
+
+/*** dropdown menues ***/
 function myFunction() {
   /*
    * Zeigt und versteckt den Inhalt des Dropdown-Menüs
    */
   console.log("TEST");
-  
+
   document.getElementById("myDropdown").classList.toggle("show");
 }
-  
+
 window.onclick = (event) => {
   /*
    * Schließt das Dropdown Menü
@@ -95,56 +103,13 @@ window.onclick = (event) => {
   }
 }
 
-/*** Formulardaten ***/
-function addNewEvent() {
-  /*
-   * Kontrolliert die eingegebenen Formulardaten und ruft
-   * weitere Funktionen zur Erstellung eines Events auf
-   */
-  var name = document.forms["input"]["name"].value;
-  var date = document.forms["input"]["date"].value;
-  var text = document.forms["input"]["text"].value;
-
-  function validateInput(name, date) {
-
-    if (name == "") {
-      console.warn("name missing");
-      return false;
-    }
-
-    if (date == "") {
-      console.warn("date missing");
-      return false;
-    }
-
-    return true;
-  }
-
-  if (!(validateInput(name, date))) {
-    console.error("could not process data");
-    return;
-  }
-
-  console.log(name, new Date(date), text);
-}
 
 
-/*** Variablen ***/
-//*********************************************************/
-var userdata; //Daten des Users
 
 
-var key = "e11b8d8fbab8d6397852f6beae012799";
 
-var userliste = "5db5d0845b5b370017bc1c02";
-
-var item = {
-  "name":"neues Item"
-}
-//*********************************************************/
-
-/*** Ereignisse ***/
-function generateEreignis(titel, kategorie, datum, bemerkung) {
+/*** events ***/
+function generateEvent(titel, date, text, done) {
   /*
    * Erstellt ein JSON Object das die Eigenschaften eines Ereignisses definiert
    *
@@ -153,114 +118,223 @@ function generateEreignis(titel, kategorie, datum, bemerkung) {
    */
   var name = {
     "titel" : titel,
-    "kategorie" : kategorie,
-    "datum" : datum,
+    "date" : date,
     "text" : text
   }
 
-  var ereignis = {
+  var event = {
     "name" : JSON.stringify(name),
-    "bought" : false
+    "bought" : false 
   }
 
-  return ereignis;
+  if (done) {
+    event["bought"] = true; 
+  }
+
+  return event;
 }
 
+function sortItems(items) {
+  var eventList = [];
+  
+  items["items"].forEach(item => {
+    let details = JSON.parse(item["name"]);
+    let newItem = {
+      "name" : details["titel"],
+      "date" : details["date"],
+      "text" : details["text"],
+      "done" : item["bought"],
+      "id" : item["_id"]
+    };
+    eventList.push(newItem);
+  });
 
-/*** HTTP-Anfragen ***/
+  eventList.sort(function(a, b) {
+    let dateA = Date(a["date"]);
+    let dateB = Date(b["date"]);
+    return new Date(a["date"]).getTime() - new Date(b["date"]).getTime();
+  });
+  
+  return eventList;
+}
+
+/*** HTTP-requests ***/
 function getData(id, callback) {
   /*
-   * Sendet eine HTTP Anfrage an das Backend und fordert eine aktuelle Liste an
+   * Sendet eine HTTP Anfrage an das Backend und fordert eine Liste an
    *
    * !Asynchrone Funktion, es kann ein Callback übergeben werden
    * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
    *
    * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
    * @callback {Function oder Boolean}
-   * @return {}: die Methode aktualisiert "userdata"
+   * @return {}: die Methode aktualisiert "semesterData"
    */
-  const Http = new XMLHttpRequest();
+  var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id;
-  Http.open("GET", url);
+  request.open("GET", url);
 
-  Http.onreadystatechange = () => {
-    if (Http.readyState == 4 && Http.status == 200) {
-      userdata = JSON.parse(Http.responseText);
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      let answer = JSON.parse(request.responseText);
+      semesterData = sortItems(answer);
       if (callback) {
         callback();
       }
     }
   }
 
-  Http.onerror = () => {
-    console.error("HttpRequest fehlgeschlagen");
+  request.onerror = () => {
+    console.warn("HTTP request failed");
   }
 
-  Http.send();
+  request.send();
 }
 
-function addItem(id, item, callback) {
+function addItemToList(id, item, callback) {
   /*
-   * Sendet eine HTTP Anfrage an das Backend und fügt ein Item zu der Liste hinzu
+   * sends HTTP request to backend and adds an item to the list
    *
-   * !Asynchrone Funktion, es kann ein Callback übergeben werden
-   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   * !asynchronous function, callbacks may be passed
    *
-   * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
-   * @parameter {JSON Object}: Item, das der Liste hinzugefügt werden soll
-   * @callback {Function oder Boolean}
-   * @return {}: die Methode aktualisiert "userdata"
+   * @parameter {String}: ID of List
+   * @parameter {JSON Object}: Item, which is to be added
+   * @callback {function or false}
+   * @return {}: the function updates "semesterData"
    */
-  const Http = new XMLHttpRequest();
+  var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id + "/items";
-  Http.open("POST", url, true);
-  Http.setRequestHeader("Content-type", "application/json");
+  request.open("POST", url, true);
+  request.setRequestHeader("Content-type", "application/json");
   var data = JSON.stringify(item);
 
-  Http.onreadystatechange = () => {
-    if (Http.readyState == 4 && Http.status == 200) {
-      userdata =JSON.parse(Http.responseText);
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      let answer = JSON.parse(request.responseText);
+      semesterData = sortItems(answer);
       if (callback) {
         callback();
       }
     }
   }
 
-  Http.onerror = () => {
-    console.error("HttpRequest fehlgeschlagen");
+  request.onerror = () => {
+    console.error("HTTP Request fehlgeschlagen");
   }
 
-  Http.send(data);
+  request.send(data);
 }
 
-function deleteItem(id, itemid, callback) {
+function updateItemInList(id, item, itemId, callback) {
   /*
-   * Sendet eine HTTP Anfrage an das Backend und fügt ein Item zu der Liste hinzu
+   * sends HTTP request to backend and adds an item to the list
    *
-   * !Asynchrone Funktion, es kann ein Callback übergeben werden
-   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   * !asynchronous function, callbacks may be passed
    *
-   * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
-   * @parameter {String}: ID des Items, das aus der Liste gelöscht werden soll
-   * @callback {Function oder Boolean}
-   * @return {}: die Methode aktualisiert "userdata"
+   * @parameter {String}: ID of List
+   * @parameter {JSON Object}: Item, which is to be added
+   * @callback {function or false}
+   * @return {}: the function updates "semesterData"
    */
-  const Http = new XMLHttpRequest();
-  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id + "/items/" + itemid;
-  Http.open("DELETE", url);
+  var request = new XMLHttpRequest();
+  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id + "/items/" + itemId;
+  request.open("PUT", url, true);
+  request.setRequestHeader("Content-type", "application/json");
+  var data = JSON.stringify(item);
 
-  Http.onreadystatechange = () => {
-    if (Http.readyState == 4 && Http.status == 200) {
-      userdata =JSON.parse(Http.responseText);
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      let answer = JSON.parse(request.responseText);
+      semesterData = sortItems(answer);
       if (callback) {
         callback();
       }
     }
   }
 
-  Http.onerror = () => {
-    console.warn("HttpRequest fehlgeschlagen");
+  request.onerror = () => {
+    console.error("HTTP Request fehlgeschlagen");
   }
 
-  Http.error();
+  request.send(data);
+}
+
+function deleteItemFromList(id, itemid, callback) {
+  /*
+   * sends HTTP request to backend and delets a listitem
+   *
+   * !asynchronous function, callbacks may be passed
+   *
+   * @parameter {String}: ID of list
+   * @parameter {String}: ID of item, which is to be deleted
+   * @callback {function or false}
+   * @return {}: function updates "semesterData"
+   */
+  var request = new XMLHttpRequest();
+  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id + "/items/" + itemid;
+  request.open("DELETE", url);
+
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      let answer = JSON.parse(request.responseText);
+      semesterData = sortItems(answer);
+      if (callback) {
+        callback();
+      }
+    }
+  }
+
+  request.onerror = () => {
+    console.warn("HTTP request failed");
+  }
+
+  request.send();
+}
+
+function getAllLists(callback) {
+  /*
+   * sends HTTP request to backend and gets all list information available
+   *
+   * !asynchronous function, callbacks may be passed
+   *
+   * @callback {function or false}
+   * @return {}: function updates "listIDs"
+   */
+  var request = new XMLHttpRequest();
+  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/';
+  request.open("GET", url);
+  request.setRequestHeader("Authorization", key);
+
+  let sortSemester = (lists) => {
+    /*
+     * creats an array containing listIDs in ascending order
+     *
+     * @parameter {array}: lists with name and ID in JSON format
+     * @return {array}: listIDs
+     */
+    var sortedListIDs = [];
+  
+    lists.forEach(list => {
+      let x = list["name"].charAt(list["name"].length-1);
+      sortedListIDs[x] = list["_id"];
+    });
+  
+    return sortedListIDs; 
+  };
+
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      var answer = JSON.parse(request.responseText);
+      listIDs = sortSemester(answer);
+      if (callback) {
+        callback();
+      }
+    }
+  }
+
+  request.onerror = () => {
+    console.warn("HTTP request failed");
+  }
+
+  request.send();
 }

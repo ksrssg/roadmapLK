@@ -16,18 +16,24 @@ ul#roadmap > li {
     color: white;
 }
 
-ul#roadmap > li span {
+ul#roadmap > li span.eventHeader {
     font-weight: bold;
     font-size: 20px;
 }
 
-ul#roadmap > li span span {
+ul#roadmap > li span.editArea {
     font-size: 13px;
+}
+
+ul#roadmap > li.done span.eventHeader, ul#roadmap > li.done span.eventText {
+    color: grey;
+    text-decoration: line-through;
 }
 
 /*** INPUT FORM ***/
 div#interface {
     position: fixed;
+    display: none;
     right: 100px;
     top: 100px;
     z-index: 100;
@@ -41,6 +47,7 @@ div#interface {
 
 form {
     width: 400px;
+    display: none;
 }
 
 form > label {
@@ -107,23 +114,4 @@ div#addButton {
     div#interface {
         display: none;
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/** FORMS */
-
-div#interface{
-    display: none;
 }
