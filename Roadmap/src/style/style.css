@@ -42,6 +42,7 @@ main {
   right: 0px;
   bottom: 0px;
   overflow-y: scroll;
+  align-items: center;
 }
 
 p {
@@ -53,29 +54,29 @@ p {
 a:link, .interactive {
   color: mediumspringgreen;
   text-decoration: none;
-  cursor: pointer;
+  cursor:url('../images/rocketcursor.png'), auto;
 }
 
 a:hover, .interactive:hover {
   color: mediumspringgreen;
   text-decoration: underline;
-  cursor: pointer;
+  cursor:url('../images/rocketcursor.png'), auto;
 }
 
 a:active, .interactive:active {
   color: darkorange;
   text-decoration: underline;
-  cursor: pointer;
+  cursor:url('../images/rocketcursor.png'), auto;
 }
 
 a:visited {
   color: mediumspringgreen;
   text-decoration: none;
-  cursor: pointer;
+  cursor:url('../images/rocketcursor.png'), auto;
 }
 
 .interactiveElement {
-  cursor: pointer;
+  cursor:url('../images/rocketcursor.png'), auto;
 }
 
 /*** Dropdown Button ***/
@@ -88,7 +89,6 @@ a:visited {
   margin-bottom: 1px;
   font-size: 16px;
   border: none;
-  cursor: pointer;
 }
 
 .backgroundVisierDiv {

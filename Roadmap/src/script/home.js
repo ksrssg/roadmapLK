@@ -63,15 +63,33 @@ function openRoadmap(id) {
 
 
  //Auto-play von spaceaudio nach einer Sekunde 
- /*window.setInterval(function() {
-    var myaudio = document.getElementById("playAudio").play();
-  }, 1000);
-    */
+ var myVar = setInterval(myTimer, 1000);
+ function myTimer() {
+ document.getElementById("playAudio").play();
+ }
+
+    
   window.setInterval(function() {
 
-  
   var textArray = ["Mein Name ist Ali!", "Wähle ein Semester aus!", "Halloooo! Na, du?", "Jetzt drück endlich was...", "Nur noch ... Tage bis zu dein Studium zu Ende ist!"];
   var randomIndex = Math.floor(Math.random() * textArray.length); 
   var randomElement = textArray[randomIndex];
   document.getElementById("speechbubble").innerHTML = randomElement;
-  }, 5000);
+  }, 8000);
+
+
+function audioPlaying() {
+var myAudio = document.getElementById('playAudio');
+
+if (myAudio.duration > 0 && !myAudio.paused) {
+ 
+    clearInterval(myVar);
+    document.getElementById("playAudio").pause();
+
+} else {
+
+    document.getElementById("playAudio").play();
+
+
+}
+}

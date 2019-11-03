@@ -1,46 +1,4 @@
 /*
-.container {
-    height: 100vh;
-    display: grid;
-    grid-template-rows: min-content 1fr min-content;
-    grid-template-columns: 175px 1fr;
-}
-
-header {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
-}
-
-article {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    padding: 22px;
-    border-right: none;
-}
-
-aside {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: 4;
-}
-
-footer {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 3;
-    grid-row-end: 3;
-}
-
-*/
-body {
-    cursor:url('../images/starcursor.png'), auto;
-}
-
 #planetsRange{
     background-image: url("../images/milchstrasse.png");
     background-repeat:no-repeat;
@@ -52,10 +10,8 @@ body {
     margin-top:0;
  
 }
+*/
 
-.cursorRocket {
-    cursor:url('../images/rocketcursor.png'), auto;
-}
 
 .planets{
     width:110px;
@@ -65,37 +21,41 @@ body {
    
 }
 
-
-.planetsRing{
+.planetsRing {
     width:140px;
     margin:0;
     padding:0;
     position: relative;
-    }
+}
 
-.planettable{
-    display:flex;
-   text-align: center;
+
+
+.planettable {
+    text-align: center;
     justify-content: center;
     border:0px; 
-    margin-left:50px;
-    margin-top:30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:250px;
     position: relative;
     z-index: 1;
+
+    background-image: url("../images/milchstrasse.png");
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
     
   
 }
 
-.planettable th {
+.planettable td {
     padding-top:0;
     padding:5px;
     padding-left:50px;
     padding-right:50px;
 }
 
-.planettable tr {
-    padding:0;
-    margin:0;
+#alien-avatar {
+    position: fixed;
 }
 
 
@@ -125,8 +85,7 @@ body {
     to   { transform: translate(0, -0px); }    
 } 
 
-#speechbubble{
-    
+#speechbubble {
     background-image: url("../images/speechbubble.png");
     background-repeat:no-repeat;
     background-size: 100% 100%;
@@ -140,63 +99,31 @@ body {
     text-align: center;
     float:left;
     margin-left: 250px;
-    padding:10px;
-    
-       
+    padding:10px; 
 }
-
-  /*CSS-Speechbubble*/
-/*.bubble{
-    float: right;
-    background-color: #F2F2F2;
-    color:rgb 0,250,154;
-    border-radius: 5px;
-    box-shadow: 0px 0px 6px #B2B2B2;
-    height: 200px;
-    margin: 20px;
-    margin-right: 250px;
-    width:  275px;
-    font-family: 'Play', sans-serif;
-    font-size: 40px;
-    
-}
-
-.bubble::after {
-background-color: #F2F2F2;
-box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
-content: "\00a0";
-display: block;
-height: 20px;
-left: -10px;
-position: relative;
-top: 20px;
-transform:             rotate( 45deg );
--moz-transform:    rotate( 45deg );
--ms-transform:     rotate( 45deg );
--o-transform:      rotate( 45deg );
--webkit-transform: rotate( 45deg );
-width:  20px;
-}
-*/
 
 /* zoom when hoven on planets */
-.hoverzoom {
-    height: 100px; 
-    overflow: visible; 
-  }
-  
-.hoverzoom {
-    transition: transform .5s ease;
-  }
+table.planettable {
+    width: 100%;
+}
 
-  .hoverzoom:hover {
+table.planettable td img {
+    height: 100px; 
+    overflow: visible;
+    transition: transform .5s ease;
+}
+
+table.planettable td img:hover {
     transform: scale(1.5);
-    cursor:url('../images/rocketcursor.png'), auto;
-    	
-  }
+}
 
   #lautsprecher{
       width:20px;
+  }
+
+  #playAudio {
+    width:20px;
+      height:20px;
   }
 
   @media (max-width:1250px) {
@@ -208,8 +135,16 @@ width:  20px;
   @media (max-width: 1100px){
       .planettable {
         transform: rotate(90deg);
-        margin-top: 200px;
+        margin:0 auto;
+       
+       
       }
+
+      /*
+      #planetsRange {
+          background-image: none;
+      }
+      */
 
       .planetsRing {
         transform: rotate(270deg);
@@ -219,23 +154,21 @@ width:  20px;
         transform: rotate(270deg);
       }
 
-      #alien {
-          visibility: hidden;
-      }
 
-      
+      table.planettable td img {
+        height: 100px; 
+        overflow: visible;
+        transition: transform .5s ease;
+    }
+    
+    table.planettable td img:hover {
+        transform: scale(1.5) rotate(270deg);
+    }
+
+   
   }
 
-  @media (max-width:695px) {
-    .planettable {
-        
-        margin-top: 200px;
-      }
-  }
-
-  @media (max-width:455px) {
-
-  }
+ 
 
   /*Bewegter Hitnergrund*/
 /*.pano { position: relative; width: 300px; height: 68px; overflow: hidden; margin: 1em auto}
