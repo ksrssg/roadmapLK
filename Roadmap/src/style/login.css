@@ -1,0 +1,159 @@
+body {
+    overflow-x: hidden;
+}
+
+#main {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#anmeldeBtn {
+    position: relative;
+    padding: 5px;
+    margin-top:20px;
+    margin-left:327px;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-family: 'Play', sans-serif;
+    color: mediumspringgreen;
+    background-color: rgb(39, 39, 39);
+
+    
+}
+
+form {
+    width: 400px;
+    display: inline-block;
+}
+
+form > label {
+    float: left;
+    margin: 12px 0 4px 0; 
+    font-family: 'Play', sans-serif;
+    color: rgb(235, 235, 235);
+}
+
+form > input {
+    padding: 10px;
+    width: 100%;
+    box-sizing : border-box;
+    font-family: 'Play', sans-serif;
+    color: white;
+    background-color: rgb(39, 39, 39);
+    border: 1px solid mediumspringgreen;
+    border-radius: 4px;
+}
+
+form > input:focus, form > textarea:focus, form > button:hover {
+    outline-color: mediumspringgreen;
+    box-shadow: 0 0 10px mediumspringgreen;
+}
+
+/* Animation */
+
+/* Startpositionen */
+.winterframe { 
+    position: relative; 
+    width: 300px; 
+    height: 165px; 
+    background:rgb(44, 44, 44); 
+    margin: 1em auto; 
+    overflow: hidden; 
+    border-top-left-radius: 300px; 
+    border-top-right-radius: 300px; 
+    border: 2px solid gainsboro
+}
+
+.winterframe img { 
+    position: absolute; 
+}
+
+.landschaft1 { 
+    width: 300px; 
+    height: 165px; 
+    animation: loop1 18s infinite reverse linear;
+}
+
+.landschaft2 { 
+    width: 300px; 
+    height: 165px; 
+    animation: loop2 18s infinite reverse linear;
+}
+
+.sterne1 { 
+    width: 300px; 
+    height: 100px;  
+    animation: loop1 60s infinite reverse linear;
+}
+.sterne2 { 
+    width: 300px; 
+    height: 100px;  
+    animation: loop2 60s infinite reverse linear;
+}
+
+.mond { 
+    width: 30%; 
+    height: auto; 
+    animation: mond 30s infinite reverse linear; 
+}
+.loko { 
+    width: 20%; 
+    height: auto; 
+    bottom: 10px; 
+    right: 20%; 
+    animation: loko 10s linear infinite;
+
+}
+
+.qualm { 
+    width: 40%; 
+    height: auto; 
+    bottom: 60px; 
+    right: 50%; 
+    animation: qualm 8s infinite;
+}
+
+@keyframes loop1 {
+   from { left: -100% }
+   to { left: 0px }
+}
+
+@keyframes loop2 {
+   from { left: 0px }
+   to { left: 100% }
+}
+
+@keyframes mond {
+	from { transform: translate(-60%) scale(0.7)}
+	to { transform: translate(300%)}
+}
+
+@keyframes qualm {
+	from {transform:translate(0,0)}
+	to {transform:translate(-200px,-100px)}
+}
+
+@keyframes loko {
+	25% {transform:rotate(5deg)}
+	50% {transform:rotate(-5deg)}
+	75% {transform:rotate(5deg)}
+	100% {transform:rotate(0deg)}
+}
+
+@media (min-width: 480px) {
+	.winterframe { width: 450px; height: 242px; }
+	.landschaft1 { width: 450px; height: 242px; }
+	.landschaft2 { width: 450px; height: 242px; }
+	.sterne1 { width: 450px; height: 150px; }
+	.sterne2 { width: 450px; height: 150px; }
+}
+
+@media (min-width: 980px) {
+	.winterframe { width: 600px; height: 330px; }
+	.landschaft1 { width: 600px; height: 330px; }
+	.landschaft2 { width: 600px; height: 330px; }
+	.sterne1 { width: 600px; height: 200px; }
+	.sterne2 { width: 600px; height: 200px; }
+	.loko { bottom: 20px;}
+	.qualm { bottom: 90px;}
+}

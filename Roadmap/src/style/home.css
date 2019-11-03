@@ -11,7 +11,9 @@
  
 }
 */
-
+.main {
+    text-align: center;
+}
 
 .planets{
     width:110px;
@@ -136,6 +138,7 @@ table.planettable td img:hover {
       .planettable {
         transform: rotate(90deg);
         margin:0 auto;
+        display: inline-block;
        
        
       }

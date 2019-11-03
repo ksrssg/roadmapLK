@@ -71,7 +71,7 @@ function openRoadmap(id) {
     
   window.setInterval(function() {
 
-  var textArray = ["Mein Name ist Ali!", "Wähle ein Semester aus!", "Halloooo! Na, du?", "Jetzt drück endlich was...", "Nur noch ... Tage bis zu dein Studium zu Ende ist!"];
+  var textArray = ["Mein Name ist Alley!", "Wähle ein Semester aus!", "Halloooo! Na, du?", "Jetzt drück endlich was...", "Nur noch ... Tage bis zu dein Studium zu Ende ist!"];
   var randomIndex = Math.floor(Math.random() * textArray.length); 
   var randomElement = textArray[randomIndex];
   document.getElementById("speechbubble").innerHTML = randomElement;
