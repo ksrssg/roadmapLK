@@ -1,4 +1,3 @@
-
 p {
     margin-top:10px;
     margin-left:250px;
@@ -6,12 +5,15 @@ p {
     font-family: 'Play', sans-serif;
     color: mediumspringgreen;
 }
+main {
+    overflow-y: hidden;
+    text-align: center;
 
+}
 
 .main {
     margin-top: 15px;
     text-align: center;
-    overflow-y: hidden;
 }
 
 #anmeldeBtn {
@@ -176,6 +178,9 @@ h2 {
     color: mediumspringgreen;
 }
 
+h2:hover {
+    color:white;
+}
 
 #schaltflaeche {
     display:inline-block;
@@ -196,3 +201,31 @@ h2 {
     float:right;
     margin-right:200px;
 }
+
+#auswahlButton {
+    position: relative;
+    padding: 5px;
+    margin-top:20px;
+    margin-left:327px;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-family: 'Play', sans-serif;
+    color: mediumspringgreen;
+    background-color: rgb(39, 39, 39);
+}
+
+/*alien-floating-around*/
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
+} 

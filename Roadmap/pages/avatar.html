@@ -13,7 +13,7 @@
     <script src="../src/script/lib.js"></script>
     <script src="../src/script/login.js"></script>
 
-    <title>Document</title>
+    <title>Avatar</title>
 </head>
 <body>
     <h1>Settings</h1>
@@ -21,11 +21,21 @@
     <main class="main">
      <div >
          <h2 id="leftButton" class="interactiveElement" onclick="switchback()"> < </h2>
-         <img id="avatar"  src="../src/images/alien.png" alt="alien red">
+         <img id="avatar" class="floating"  src="../src/images/alien.png" alt="alien red">
          <h2 id="rightButton" class="interactiveElement" onclick="switchforeward()"> > </h2>
      </div>
 
+     
+
+     <form>
+
+            <button id="auswahlButton" onclick="safe()">Auswählen</button>
+           
+     </form>
+     
     </main>
+
+    
     
 </body>
 </html>
