@@ -150,3 +150,13 @@ a:visited {
 .show {
   display: block;
 }
+
+@media (max-width:455px) {
+  .dropbutton {
+    visibility: hidden;
+  }
+
+  .backgroundVisierDiv {
+    visibility: hidden;
+  }
+}

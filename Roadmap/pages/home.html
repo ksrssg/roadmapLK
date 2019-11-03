@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  
     <title>Home</title>
-
     <link rel="stylesheet" href="../src/style/style.css">
     <link rel="stylesheet" href="../src/style/home.css">
     <link href="https://fonts.googleapis.com/css?family=Cousine|Play&display=swap" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="../src/script/lib.js"></script>
+    <script src="../src/script/home.js"></script>
+    
+    <link rel="icon" href="https://c7.uihere.com/files/584/496/55/5bc03c0c060b4.jpg" type="image/gif" sizes="20x16"> 
+
 </head>
+
 <body>
   
-  <h1>Menu</h1>
-  
+  <h1>Home</h1>
   <main>
     
     <div>
@@ -27,84 +31,42 @@
     <div id="planetsRange">
             <table class="planettable">
                 <tr>
-                  <th><img id="semester1" class="planets hoverzoom" src="../src/images/planet1.png" onclick ="openRoadmap(id)" alt="planet1"></div></th>
+                  <th><img id="semester1" class="planets hoverzoom" src="../src/images/planet1.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1"></div></th>
                   <th></th>
-                  <th><img id="semester3" class="planets hoverzoom" src="../src/images/planet3.png" onclick ="openRoadmap(id)" alt="planet6"></div></th>
+                  <th><img id="semester3" class="planets hoverzoom" src="../src/images/planet3.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout= "changetextback()" alt="planet6"></div></th>
                   <th></th>
-                  <th><img id="semester5" class="planets hoverzoom" src="../src/images/planet5.png" onclick ="openRoadmap(id)" alt="planet5"></div></th>
+                  <th><img id="semester5" class="planets hoverzoom" src="../src/images/planet5.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet5"></div></th>
                   <th></th>
                 </tr>
                 <tr>
                   <td></td>
-                  <td><img id="semester2" class="planetsRing hoverzoom" src="../src/images/planet2.png" onclick ="openRoadmap(id)" alt="planet2"></div></td>
+                  <td><img id="semester2" class="planetsRing hoverzoom" src="../src/images/planet2.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet2"></div></td>
                   <td></td>
-                  <td><img id="semester4" class="planetsRing hoverzoom" src="../src/images/planet4.png" onclick ="openRoadmap(id)" alt="planet4"></div></td>
+                  <td><img id="semester4" class="planetsRing hoverzoom" src="../src/images/planet4.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet4"></div></td>
                   <td></td>
-                  <td><img id="semester6" class="planetsRing hoverzoom" src="../src/images/planet6.png" onclick ="openRoadmap(id)" alt="planet6"></div></td>
+                  <td><img id="semester6" class="planetsRing hoverzoom" src="../src/images/planet6.png" onclick ="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout="changetextback()" alt="planet6"></div></td>
                 </tr>
             </table>
-    
+
       </div>
 
-
-
-
-
   </main>
-
-
-
-
-      
-      
-           
-<script>
- //Auto-play von spaceaudio nach einer Sekunde 
-window.setInterval(function() {
-  var myaudio = document.getElementById("playAudio").play();
-}, 1000);
-  
-window.setInterval(function() {
-
-var textArray = ["Mein Name ist Ali!", "Wähle ein Semester aus!", "Halloooo! Na, du?", "Jetzt drück endlich was...", "Nur noch ... Tage bis zu dein Studium zu Ende ist!"];
-var randomIndex = Math.floor(Math.random() * textArray.length); 
-var randomElement = textArray[randomIndex];
-document.getElementById("speechbubble").innerHTML = randomElement;
-}, 5000);
-
-</script>
-
-
-
-    
-
- 
-
-
-
-
 
     <!-- Dropdown Menü -->
 
     <div class="dropdown">
           <div class="backgroundVisierDiv"></div>
-          <button onclick="myFunction()" class="dropbutton" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO.png" alt="Logo???"></button>
+          <button onclick="myFunction()" class="dropbutton" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
           <div id="myDropdown" class="dropdown-content">
             <a href="#"><audio controls autoplay="autoplay" loop id="playAudio">
                 <source src="../src/images/spacemusic.mp3">
               </audio></a>
-            <a href="#">Link 2</a>
+            <a href="#">Home</a>
             <a href="#">Link 3</a>
-         
-     
-      
+    
           </div>
     </div>
 
- 
 
-   
-     
-    
 </body>
 </html>
