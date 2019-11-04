@@ -1,4 +1,4 @@
-﻿﻿/*** Variables ***/
+﻿﻿/*** VARIABLES ***/
 var rgb = [255, 0, 0]; //Array mit RGB-Werten für animierten Gradient
 var indexColor = 1; //Index für den Algorithmus des animierten Gradients
 var add = true; //Anweisung für den Algorithmus des animierten Gradients
@@ -7,27 +7,28 @@ var timer = 1; //Timer des animierten Gradients
 var listIDs = []; //array with IDs to all lists in backend
 var semesterData; //userdata of specific semester
 
-var avatarPath = "../src/images/alien.png";
-
 
 //*********************************************************/
 var key = "e11b8d8fbab8d6397852f6beae012799";
 //*********************************************************/
 
-/*** Animierter Gradient ***/
-var animatedGradient; //Animierter Gradient
+
+/*** ANIMATED GRADIENT ***/
+var animatedGradient; //animated gradient
 
 function startAnimatedGradient() {
   /*
-   * Berechnet die Farbwerte des Gradients
-   * Funktion wird durch das Interval {timer} neu aufgerufen
+   * calculates color values
+   * function is getting called continually due to a {timer}
    *
-   * -> start: startAnimatedGradient()
-   * -> terminate: clearTimeout(animatedGradient)
+   * -> start gradient: startAnimatedGradient()
+   * -> terminate gradient: clearTimeout(animatedGradient)
+   * 
+   * @return {}
    */
-
   if (add) {
     rgb[indexColor]++;
+    
     if (rgb[indexColor] === 255) {
       add = false;
       switch (indexColor) {
@@ -50,18 +51,18 @@ function startAnimatedGradient() {
 
   function rgbToHex(colorValues) {
     /*
-     * Konvertiert RGB Werte zu einem Hexcode
+     * convertes rgb values to hexcode
      *
-     * @parameter {Array}: Beinhaltet die RGB Werte
-     * @return {String}: Hexcode der in CSS eingesetzt werden kann
+     * @parameter {array}: rgb values
+     * @return {string}: hexcode, which can be placed in CSS property
      */
 
     function toHex(value) {
       /*
-       * Konvertiert einen dezimalen Wert zu einer zweistelligen Hexadezimalzahl
+       * convertes decimal to hex with two digits
        *
-       * @parameter {Number}: Dezimalwert
-       * @return {String}: Hexadezimalwert
+       * @parameter {number}: decimal
+       * @return {string}: hex
        */
       let hex = value.toString(16);
       return hex.length == 1 ? "0" + hex : hex;
@@ -70,28 +71,27 @@ function startAnimatedGradient() {
     return "#" + toHex(colorValues[0]) + toHex(colorValues[1]) + toHex(colorValues[2]);
   }
 
-  document.documentElement.style.setProperty('--AnimatedNeoncolor', rgbToHex(rgb));
+  document.documentElement.style.setProperty('--AnimatedNeoncolor', rgbToHex(rgb)); //changes color in CSS file style.css
 
   animatedGradient = setTimeout(startAnimatedGradient, timer);
 }
 
 
-
-/*** dropdown menue ***/
+/*** DROPDOWN MENUE ***/
 function myFunction() {
   /*
-   * Zeigt und versteckt den Inhalt des Dropdown-Menüs
+   * shows and hides dropdown menue
+   *
+   * @return {}
    */
-  console.log("TEST");
-
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
 window.onclick = (event) => {
   /*
-   * Schließt das Dropdown Menü
+   * closes dropdown menue
    *
-   * @event: Click auf Dropdown Button
+   * @event: click on dropdown button
    */
   if (event.target.matches('.dropbutton')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -105,13 +105,14 @@ window.onclick = (event) => {
   }
 }
 
-/*** events ***/
+
+/*** EVENTS ***/
 function generateEvent(titel, date, text, done) {
   /*
-   * Erstellt ein JSON Object das die Eigenschaften eines Ereignisses definiert
+   * creates a JSON object, which can be stored in backend
    *
-   * @parameter {Strings}: Eigenschaften des JSON Objects
-   * @return {JSON Object}: Ereignis, das der Liste hinzugefügt werden kann
+   * @parameter {strings}: properties of JSON object
+   * @return {JSON Object}: result, which can be attached to list
    */
   var name = {
     "titel" : titel,
@@ -119,7 +120,7 @@ function generateEvent(titel, date, text, done) {
     "text" : text
   }
 
-  var event = {
+  var event = { //necessary formating, can be processed in backend
     "name" : JSON.stringify(name),
     "bought" : false 
   }
@@ -132,6 +133,12 @@ function generateEvent(titel, date, text, done) {
 }
 
 function sortItems(items) {
+  /*
+   * sorts event items according to date
+   *
+   * @parameter {array}: JSON objects
+   * @return {array}: events in JSON fomat in chronological order
+   */
   var eventList = [];
   
   items["items"].forEach(item => {
@@ -143,6 +150,7 @@ function sortItems(items) {
       "done" : item["bought"],
       "id" : item["_id"]
     };
+    
     eventList.push(newItem);
   });
 
@@ -155,7 +163,7 @@ function sortItems(items) {
   return eventList;
 }
 
-/*** HTTP-requests ***/
+/*** HTTP-REQUESTS ***/
 function getData(id, callback) {
   /*
    * Sendet eine HTTP Anfrage an das Backend und fordert eine Liste an
@@ -417,4 +425,18 @@ function deleteList(id, callback) {
   }
 
   request.send();
+}
+
+
+
+
+function getNumber(string) {
+  var a = string.charAt(string.length-2);
+  var b = string.charAt(string.length-1);
+
+    if (a == 0) {
+        return b;
+    } else {
+        return a + b;
+    }
 }
