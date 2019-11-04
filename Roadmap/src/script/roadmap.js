@@ -1,5 +1,4 @@
 ﻿/*** VARIABLES ***/
-var semesterNumber; //semester number
 var semesterListID;
 var activeItem;
 
@@ -9,7 +8,14 @@ window.onload = () => {
    */
   var id = new URLSearchParams(window.location.search).get("semester");
   semesterListID = new URLSearchParams(window.location.search).get("listid");
-  semesterNumber = id.charAt(id.length-1);
+  var semesterNumber;
+  var a = id.charAt(id.length-2);
+  var b = id.charAt(id.length-1);
+  if (a == 0) {
+    semesterNumber = b;
+  } else {
+    semesterNumber = a + b;
+  }
   document.getElementById("headline").innerHTML = "Semester <span>" + semesterNumber + "</span>";
   getData(semesterListID, printList);
 }
@@ -30,14 +36,10 @@ function printList() {
 
 }
 
-
-
-
-
-
-
-
-
+function cancel() {
+  document.getElementById("addButton").style.display = "block";
+  document.getElementById("interface").style.display = "none";
+}
 
 
 
@@ -107,6 +109,9 @@ function addEvent() {
   document.getElementById("interface").style.display = "block";
   document.getElementById("addEvent").style.display = "block";
   document.getElementById("editEvent").style.display = "none";
+  document.forms["addEvent"]["name"].value = "";
+  document.forms["addEvent"]["date"].value = "";
+  document.forms["addEvent"]["text"].value = "";
 }
 
 function addNewEvent() {

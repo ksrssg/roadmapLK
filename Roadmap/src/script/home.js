@@ -13,9 +13,13 @@ window.onload = () => {
       odd.innerHTML = "";
       even.innerHTML = "";
       for (let i = 1; i < listIDs.length; i++) {
+            var number;
+            if (i < 10) {
+                number = "0" + i;
+            }
           if (i % 2) { //odd number
               var td = document.createElement("td");
-              td.innerHTML = '<img id="semester' + i + '" class="planets interactiveElement" src="' + planets[index++] + '" onclick="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1">';
+              td.innerHTML = '<img id="semester' + number + '" class="planets interactiveElement" src="' + planets[index++] + '" onclick="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1">';
               odd.appendChild(td);
               even.appendChild(document.createElement("td"));
           } else { //even number
@@ -44,7 +48,13 @@ window.onload = () => {
   }
   
   function addSemester() {
-      let name = "Semester" + listIDs.length;
+      var number;
+      if (listIDs.length < 10) {
+          number = "0" + listIDs.length;
+      } else {
+          number = listIDs.length
+      }
+      let name = "Semester" + number;
       createNewList(name, printLists);
   }
   
@@ -55,11 +65,19 @@ window.onload = () => {
      * @parameter {String}: ID of Semester
      * @return {}
      */
-    window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[id.charAt(id.length-1)],"_self");
+    var index;
+    var a = id.charAt(id.length-2);
+    var b = id.charAt(id.length-1);
+    if (a == 0) {
+        index = b;
+    } else {
+        index = a + b;
+    }
+    window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[index],"_self");
   }
   
   function changesemestertext(id) {
-      document.getElementById("speechbubble").innerHTML = "Semester " + id.charAt(id.length-1);
+      document.getElementById("speechbubble").innerHTML = "Semester " + id.charAt(id.length-2) + id.charAt(id.length-1);
   }
   
   function changetextback() {

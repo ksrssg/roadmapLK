@@ -310,10 +310,23 @@ function getAllLists(callback) {
      * @return {array}: listIDs
      */
     var sortedListIDs = [];
+
+    console.log(lists);
   
     lists.forEach(list => {
-      let x = list["name"].charAt(list["name"].length-1);
-      sortedListIDs[x] = list["_id"];
+      var a = list["name"].charAt(list["name"].length-2);
+      var b = list["name"].charAt(list["name"].length-1);
+      
+      if (a == 0) {
+        if (b == 0) {
+          sortedListIDs[0] = list["_id"];
+        } else {
+          sortedListIDs[b] = list["_id"];
+        }
+      } else {
+        let x = a + b;
+        sortedListIDs[x] = list["_id"];
+      }
     });
   
     return sortedListIDs; 
