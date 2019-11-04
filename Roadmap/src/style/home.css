@@ -90,14 +90,6 @@ table#planetTable td img:hover {
     transform: scale(1.5);
 }
 
-#lautsprecher{
-    width:20px;
-}
-
-#playAudio {
-    width:20px;
-    height:20px;
-}
 
 @media (max-width: 1250px) {
     #speechbubble {

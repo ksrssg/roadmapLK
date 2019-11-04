@@ -33,10 +33,19 @@
             <button id="auswahlButton" onclick="safe()">Auswählen</button>
            
      </form>
-     
+
     </main>
 
-    
+    <div class="dropdown">
+        <div class="backgroundVisierDiv"></div>
+        <button onclick="myFunction()" class="dropbutton interactiveElement" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#"><audio controls autoplay="autoplay" loop id="playAudio"><source src="../src/images/spacemusic.mp3"></audio> <img id="lautsprecher" src="../src/images/speaker.png" alt="lautsprecher" onclick="audioPlaying()"></a>
+          <a href="home.html">Home</a>
+          <a href="avatar.html">Settings</a>
+          <a href="#">Impressum</a>
+        </div>
+      </div> 
     
 </body>
 </html>

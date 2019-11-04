@@ -29,26 +29,7 @@ window.setInterval(function() {
 }, 8000);
 
 
-/*** AUTOPLAY ***/
-/*
- * Google prevents autoplay
- * this code snipped bypasses this restriction
- */
-var myVar = setInterval(myTimer, 1000);
-function myTimer() {
-    document.getElementById("playAudio").play();
-}
 
-function audioPlaying() {
-    var myAudio = document.getElementById('playAudio');
-    
-    if (myAudio.duration > 0 && !myAudio.paused) {
-        clearInterval(myVar);
-        document.getElementById("playAudio").pause();
-    } else {
-        document.getElementById("playAudio").play();
-    }
-}
 
 
 /*** USER INTERACTIVITY ***/

@@ -147,6 +147,16 @@ a:visited {
   position: relative;
 }
 
+
+#lautsprecher{
+  width:20px;
+}
+
+#playAudio {
+  width:20px;
+  height:20px;
+}
+
 .show {
   display: block;
 }
