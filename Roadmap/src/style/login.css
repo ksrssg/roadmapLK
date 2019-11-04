@@ -6,6 +6,7 @@ p {
     color: mediumspringgreen;
 }
 main {
+    margin-top:50px;
     overflow-y: hidden;
     text-align: center;
 

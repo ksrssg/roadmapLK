@@ -34,8 +34,8 @@ ul#roadmap > li.done span.eventHeader, ul#roadmap > li.done span.eventText {
 div#interface {
     position: fixed;
     display: none;
-    right: 100px;
-    top: 100px;
+    right: 150px;
+    top: 150px;
     z-index: 100;
     width: fit-content;
     height: fit-content;
@@ -106,6 +106,36 @@ form button {
 div#addButton {
     color: var(--AnimatedNeoncolor);
     font-size: 100px;
+    position: fixed;
+    left:100px;
+    top:70px;
+}
+
+#alien {
+    width: 160px;
+    position: fixed;
+    top: 430px;
+    left: 520px;
+    
+    
+}
+
+#speechbubble {
+    background-image: url("../images/speechbubble.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    font-family: 'Play', sans-serif, bold;
+    font-size: 15px; 
+    position: relative;
+    top:210px;
+    left:300px;
+    padding: 10px; 
+    padding-bottom: 40px;
+    padding-left:22px;
 }
 
 
