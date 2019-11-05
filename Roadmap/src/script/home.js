@@ -60,7 +60,7 @@ function openRoadmap(id) {
      * @parameter {String}: ID of Semester
      * @return {}
      */
-    var index, lastSemester;
+    var index;
     var a = id.charAt(id.length-2);
     var b = id.charAt(id.length-1);
 
@@ -70,13 +70,7 @@ function openRoadmap(id) {
         index = a + b;
     }
 
-    if (index == listIDs.length-1) {
-      lastSemester = true;
-    } else {
-      lastSemester = false;
-    }
-
-    window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[index] + "&key=" + key + "&last=" + lastSemester, "_self");
+    window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[index] + "&key=" + key, "_self");
 }
 
 
@@ -150,3 +144,40 @@ function changetextback() {
      */
     document.getElementById("speechbubble").innerHTML = "Wähle ein Semester aus!"
 }
+
+
+  /*
+  var opacity = 0;
+  var intervalId = 0;
+
+  function fadeOut() {
+      intervalId=setInterval(hide,20);
+  }
+
+  function fadeIn() {
+      intervalId=setInterval(show,20);
+  }
+
+  function showSb() {
+      var img = document.getElementById("speechbubble");
+      opacity = Number(window.getComputedStyle(img).getPropertyValue("opacity"));
+
+      if(opacity<1){
+          opacity=opacity+0.1;
+          img.style.opacity=opacity;
+      } else {
+          clearInterval(intervalId);
+      }
+  }
+
+  function hideSb() {
+      var img = document.getElementById("speechbubble");
+      opacity = Number(window.getComputedStyle(img).getPropertyValue("opacity"));
+      if(opacity>0){
+          opacity=opacity-0.1;
+          img.style.opacity=opacity;
+      } else {
+          clearInterval(intervalId);
+      }
+  }
+  */
