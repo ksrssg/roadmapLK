@@ -5,47 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="../src/style/style.css">
-    <link rel="stylesheet" href="../src/style/login.css">
+    <title>Avatar</title>
+    <link rel="shortcut icon" href="../src/images/astronaut_PIXEL_LOGO.png" />
 
+    <link rel="stylesheet" href="../src/style/style.css">
+    <link rel="stylesheet" href="../src/style/avatar.css">
     <link href="https://fonts.googleapis.com/css?family=Cousine|Play&display=swap" rel="stylesheet">
 
     <script src="../src/script/lib.js"></script>
     <script src="../src/script/avatar.js"></script>
-    <link rel="shortcut icon" href="../src/images/astronaut_PIXEL_LOGO_2.png" />
-
-    <title>Avatar</title>
 </head>
 <body>
+
     <h1>Settings</h1>
 
     <main class="main">
-     <div >
-         <h3 id="leftButton" class="interactiveElement" onclick="switchback()"> < </h3>
-         <img id="alien" class="floating"  src="../src/images/alien.png" alt="alien">
-         <h3 id="rightButton" class="interactiveElement" onclick="switchforeward()"> > </h3>
-     </div>
+        
+        <div>
+            <h3 id="leftButton" class="interactiveElement" onclick="switchback()">
+                < </h3> <img id="alien" class="floating" src="../src/images/alien.png" alt="alien">
+                    <h3 id="rightButton" class="interactiveElement" onclick="switchforeward()"> > </h3>
+        </div>
 
 
 
-     <form>
+        <form>
 
-            <button type="button" id="auswahlButton" onclick="safe()">Auswählen</button>
+            <button type="button" class="interactiveElement" id="auswahlButton" onclick="safe()">Auswählen</button>
 
-     </form>
+        </form>
 
     </main>
 
-    <!-- Dropdown Menü -->
-  <div class="dropdown">
-      <div class="backgroundVisierDiv"></div>
-      <button onclick="openDropdown()" class="dropbutton interactiveElement" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
-      <div id="myDropdown" class="dropdown-content">
-        <a href="#"><h2><audio controls autoplay="autoplay" loop id="playAudio"><source src="../src/images/spacemusic.mp3"></audio><img id="lautsprecher" src="../src/images/speaker.png" alt="lautsprecher" onclick="audioPlaying()"></h2></a>
-        <a href="#"><h2 onclick="goToHome()">Home</h2></a>
-        <a href="#"><h2 onclick="goToSettings()">Settings</h2></a>
-        <a href="#"><h2 onclick="goToImpressum()">Impressum</h2></a>
-       </div>
+    <!-- dropdown -->
+    <div class="dropdown">
+        <div class="backgroundVisierDiv"></div>
+        <button onclick="openDropdown()" class="dropbutton interactiveElement" type="submit"><img class="astrologo"
+                src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="#">
+                <h2><audio controls autoplay="autoplay" loop id="playAudio">
+                        <source src="../src/images/spacemusic.mp3"></audio><img id="lautsprecher"
+                        src="../src/images/speaker.png" alt="lautsprecher" onclick="audioPlaying()"></h2>
+            </a>
+            <a href="#">
+                <h2 onclick="goToHome()">Home</h2>
+            </a>
+            <a href="#">
+                <h2 onclick="goToSettings()">Settings</h2>
+            </a>
+            <a href="#">
+                <h2 onclick="goToImpressum()">Impressum</h2>
+            </a>
+        </div>
     </div>
 
 </body>

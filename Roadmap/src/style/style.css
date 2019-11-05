@@ -1,4 +1,4 @@
-/*** Reset CSS & General Settings ***/
+/*** RESET CSS & GENERAL SETTINGS ***/
 * {
   padding: 0;
   margin: 0;
@@ -12,7 +12,7 @@
   display: none;
 }
 
-/*** Basic Layout & Design ***/
+/*** BASIC LAYOUT & DESIGN ***/
 html, body {
   width: 100%;
   height: 100%;
@@ -46,9 +46,8 @@ main {
 }
 
 p {
-  font-family: 'Cousine', monospace;
+  font-family: 'Play', sans-serif;
   color: white;
-  font-size: 25px;
 }
 
 a:link, .interactive {
@@ -60,26 +59,27 @@ a:link, .interactive {
 a:hover, .interactive:hover {
   color: mediumspringgreen;
   text-decoration: underline;
-  cursor:url('../images/rocketcursor.png'), auto;
+  cursor: url('../images/rocketcursor.png'), auto;
 }
 
 a:active, .interactive:active {
   color: darkorange;
   text-decoration: underline;
-  cursor:url('../images/rocketcursor.png'), auto;
+  cursor: url('../images/rocketcursor.png'), auto;
 }
 
 a:visited {
   color: mediumspringgreen;
   text-decoration: none;
-  cursor:url('../images/rocketcursor.png'), auto;
+  cursor: url('../images/rocketcursor.png'), auto;
 }
 
 .interactiveElement {
-  cursor:url('../images/rocketcursor.png'), auto;
+  cursor: url('../images/rocketcursor.png'), auto;
 }
 
-/*alien-floating-around*/
+
+/*** FLOATING ANIMATION ***/
 .floating {  
   animation-name: floating;
   animation-duration: 3s;
@@ -95,7 +95,8 @@ a:visited {
   to   { transform: translate(0, -0px); }    
 } 
 
-/*** Dropdown Button ***/
+
+/*** DROPDOWN BUTTON ***/
 .dropbutton {
   outline: none;
   border: none;
@@ -109,7 +110,6 @@ a:visited {
 }
 
 .backgroundVisierDiv {
-  padding:0;
   margin-left: 40px;
   margin-top: 50px;
   width: 50px;
@@ -119,29 +119,25 @@ a:visited {
   float: right;
 }
 
-/* dropdown button position*/
 .dropdown {
   position: fixed;
   right: 10px;
   top: 10px;
   z-index: 100;
 }
-  
-/* Dropdown Content (Hidden wenn Default) */
+
 .dropdown-content {
   width: 135px;
   display: none;
   position: absolute;
   background-color: #565058;
-  padding: 0px;
-  margin: 2x;
+  margin: 2px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  
 }
   
-/* Subsites bei Dropdown*/
 .dropdown-content h2 {
   font-size: 15px;
+  font-family: 'Play', sans-serif;
   color: white;
   text-align: center;
   padding: 5px;
@@ -150,11 +146,9 @@ a:visited {
 }
 
 .dropdown-content h2:hover {
-  cursor:url('../images/rocketcursor.png'), auto;
+  cursor: url('../images/rocketcursor.png'), auto;
 }
 
-  
-/*Frabe von Dropdown verändern beim Hovern*/
 .dropdown-content a:hover {
   background-color: rgb(156, 134, 134);
 }
@@ -166,20 +160,21 @@ a:visited {
   position: relative;
 }
 
-
 #lautsprecher{
-  width:20px;
+  width: 20px;
 }
 
 #playAudio {
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
 }
 
 .show {
   display: block;
 }
 
+
+/*** RESPONSIVE ***/
 @media (max-width:657px) {
   .dropbutton {
     visibility: hidden;

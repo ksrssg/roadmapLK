@@ -9,15 +9,13 @@ var planets = ["../src/images/planet1.png",
 var textArray = ["Mein Name ist Alley!",
                     "Wähle ein Semester aus!",
                     "Halloooo! Na, du?",
-                    "Jetzt drück endlich was...",
-                    "Nur noch ... Tage bis zu dein Studium zu Ende ist!"]; //random alien messages
-
+                    "Jetzt drück endlich was..."]; //random alien messages
 
 
 /*** ONLOAD ***/
 window.onload = () => {
     /*
-     * update listIDs
+     * basic setup and random alien messages
      */
     getKey();
     getAllLists(printLists);
@@ -28,9 +26,6 @@ window.setInterval(function() {
     var randomElement = textArray[randomIndex];
     document.getElementById("speechbubble").innerHTML = randomElement;
 }, 8000);
-
-
-
 
 
 /*** USER INTERACTIVITY ***/
@@ -60,7 +55,7 @@ function openRoadmap(id) {
      * @parameter {String}: ID of Semester
      * @return {}
      */
-    var index;
+    var index, lastSemester;
     var a = id.charAt(id.length-2);
     var b = id.charAt(id.length-1);
 
@@ -70,7 +65,13 @@ function openRoadmap(id) {
         index = a + b;
     }
 
-    window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[index] + "&key=" + key, "_self");
+    if (index == listIDs.length-1) {
+      lastSemester = true;
+    } else {
+      lastSemester = false;
+    }
+
+    window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[index] + "&key=" + key + "&last=" + lastSemester, "_self");
 }
 
 
@@ -113,14 +114,13 @@ function printLists() {
         }
     }
 
+    var td = document.createElement("td");
+    td.innerHTML = '<img title="füge ein Semester hinzu" alt="add Semester" id="semesterAdd" class="planets interactiveElement" src="../src/images/planetAdd.png" onclick="addSemester()" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="Add Planet">';
+        
     if (listIDs.length % 2) { //odd number
-        var td = document.createElement("td");
-        td.innerHTML = '<img id="semesterAdd" class="planets interactiveElement" src="../src/images/planetAdd.png" onclick="addSemester()" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="Add Planet">';
         odd.appendChild(td);
         even.appendChild(document.createElement("td"));
     } else { //even number
-        var td = document.createElement("td");
-        td.innerHTML = '<img id="semesterAdd" class="planets interactiveElement" src="../src/images/planetAdd.png" onclick="addSemester()" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="Add Planet">';
         even.appendChild(td);
         odd.appendChild(document.createElement("td"));
     }
@@ -144,40 +144,3 @@ function changetextback() {
      */
     document.getElementById("speechbubble").innerHTML = "Wähle ein Semester aus!"
 }
-
-
-  /*
-  var opacity = 0;
-  var intervalId = 0;
-
-  function fadeOut() {
-      intervalId=setInterval(hide,20);
-  }
-
-  function fadeIn() {
-      intervalId=setInterval(show,20);
-  }
-
-  function showSb() {
-      var img = document.getElementById("speechbubble");
-      opacity = Number(window.getComputedStyle(img).getPropertyValue("opacity"));
-
-      if(opacity<1){
-          opacity=opacity+0.1;
-          img.style.opacity=opacity;
-      } else {
-          clearInterval(intervalId);
-      }
-  }
-
-  function hideSb() {
-      var img = document.getElementById("speechbubble");
-      opacity = Number(window.getComputedStyle(img).getPropertyValue("opacity"));
-      if(opacity>0){
-          opacity=opacity-0.1;
-          img.style.opacity=opacity;
-      } else {
-          clearInterval(intervalId);
-      }
-  }
-  */

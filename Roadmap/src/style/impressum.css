@@ -1,17 +1,19 @@
+/*** GENERAL PAGE LAYOUT & DESIGN ***/
 main {
     align-items: center;
 }
 
+/*** DESIGN ***/
 #textfeld {
-    width:600px;
-    height:400px;
+    width: 600px;
+    height: 400px;
     background: rgba(68, 68, 68, 0.5);    
     border: 3px solid var(--AnimatedNeoncolor);
     border-radius: 30px;
-    padding:10px ;
-    margin:auto;
+    padding: 10px ;
+    margin: auto;
     margin-top: 50px;
-    text-align:centre;
+    text-align: centre;
 }
 
 #textfeld p  {
@@ -29,7 +31,7 @@ h4 {
 
 #lennyMail {
     position: relative;
-    float:left;
+    float: left;
     text-decoration: underline mediumspringgreen;
 }
 

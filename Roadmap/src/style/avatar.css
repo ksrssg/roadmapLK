@@ -1,0 +1,66 @@
+/*** GENERAL PAGE LAYOUT & DESIGN ***/
+.main {
+    margin-top: 15px;
+    text-align: center;
+}
+
+h3 {
+    margin-top: 150px;
+    font-size: 100px;
+    font-family: 'Play', sans-serif;
+    color: mediumspringgreen;
+}
+
+h3:hover {
+    color: white;
+}
+
+#alien {
+    width: 400px;
+}
+
+
+/*** INPUT ***/
+#leftButton {
+    position: relative;
+    float: left;
+    left: 10%
+}
+
+#rightButton {
+    position: relative;
+    float: right;
+    right: 10%
+}
+
+#auswahlButton {
+    position: relative;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 327px;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-family: 'Play', sans-serif;
+    color: mediumspringgreen;
+    background-color: rgb(39, 39, 39);
+}
+
+form > input:focus, form > textarea:focus, form > button:hover {
+    box-shadow: 0 0 10px mediumspringgreen;
+}
+
+
+/*** RESPONSIVE ***/
+@media (max-width: 521) {
+    #alien {
+      width: 200px;
+    }
+    
+    #leftButton {
+        margin-left: auto;
+    }
+    
+    #rightButton {
+        margin-right: auto;
+    }
+}

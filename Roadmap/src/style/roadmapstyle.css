@@ -8,6 +8,7 @@ ul#roadmap {
     margin-left: 15%;
     padding: 10px;
     list-style: none;
+    font-family: 'Play', sans-serif;
     border-left: var(--AnimatedNeoncolor) 5px solid;
 }
 
@@ -53,7 +54,7 @@ form {
 form > label {
     float: left;
     margin: 12px 0 4px 0; 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Play', sans-serif;
     color: rgb(235, 235, 235);
 }
 
@@ -61,7 +62,7 @@ form > input {
     padding: 10px;
     width: 100%;
     box-sizing : border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Play', sans-serif;
     color: white;
     background-color: rgb(39, 39, 39);
     border: none;
@@ -77,8 +78,8 @@ form > button:focus {
 }
 
 form > button:active {
-    outline-color: darkorange;
-    box-shadow: 0 0 10px darkorange;
+    outline-color: white;
+    box-shadow: 0 0 10px white;
 }
 
 ::placeholder {
@@ -107,16 +108,16 @@ div#addButton {
     color: var(--AnimatedNeoncolor);
     font-size: 100px;
     position: fixed;
-    left:8%;
-    top:10%;
+    left: 8%;
+    top: 10%;
 }
 
 div#removeButton {
     color: var(--AnimatedNeoncolor);
     font-size: 100px;
     position: fixed;
-    left:9%;
-    top:25%;
+    left: 9%;
+    top: 25%;
 }
 
 #alien {
@@ -124,8 +125,6 @@ div#removeButton {
     position: fixed;
     top: 430px;
     left: 520px;
-    
-    
 }
 
 #speechbubble {
@@ -139,8 +138,8 @@ div#removeButton {
     font-family: 'Play', sans-serif, bold;
     font-size: 15px; 
     position: relative;
-    top:210px;
-    left:300px;
+    top: 210px;
+    left: 300px;
     padding: 10px; 
     padding-bottom: 40px;
     padding-left:22px;
@@ -153,57 +152,55 @@ div#removeButton {
         visibility: hidden;
     }
     div#interface {
-        top:30%;
+        top: 30%;
     }
 }
 
 @media (max-width: 914px) {
     div#addButton {
-        left:5%;
+        left: 5%;
         
     }
     
     div#removeButton {
-        left:6%;
+        left: 6%;
     }
 }
+
 @media (max-width: 669px) {
     div#addButton {
-        left:2%;
-        
+        left: 2%;
     }
     
     div#removeButton {
-        left:3%;
+        left: 3%;
     }
 }
 
-@media (max-width:657px) {
-
+@media (max-width: 657px) {
     h1 {
         font-size: 45px;
     }
+
     div#addButton {
-        left:20%;
-        top:10%
+        left: 20%;
+        top: 10%
     }
     
     div#removeButton {
-        left:60%;
-        top:10%;
+        left: 60%;
+        top: 10%;
     }
 
     ul#roadmap {
-        margin-top:30%
+        margin-top: 30%
     }
 
     div#interface {
-        top:50%;
+        top: 50%;
         right: 0;
         left: 0;
         margin-left: -11%;
         transform: scale(0.5);
     }
 }
-
-

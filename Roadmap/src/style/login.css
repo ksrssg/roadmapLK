@@ -1,40 +1,24 @@
+/*** BASIC LAYOUT & DESIGN ***/
 p {
-    margin-top:10px;
-    margin-left:250px;
+    margin-top: 10px;
+    margin-left: 250px;
     font-size: 10px;
-    font-family: 'Play', sans-serif;
     color: mediumspringgreen;
 }
+
 main {
-    margin-top:60px;
+    margin-top: 60px;
     overflow-y: hidden;
     text-align: center;
 }
 
-.main {
-    margin-top: 15px;
-    text-align: center;
-}
-
-#anmeldeBtn {
-    position: relative;
-    padding: 5px;
-    margin-top:20px;
-    margin-left:327px;
-    border: 1px solid white;
-    border-radius: 4px;
-    font-family: 'Play', sans-serif;
-    color: mediumspringgreen;
-    background-color: rgb(39, 39, 39);
-}
-
 #demokey {
     position: relative;
-
 }
 
+
+/*** LOGIN ***/
 form {
-    margin:0;
     width: 400px;
     display: inline-block;
 }
@@ -67,9 +51,19 @@ form > input:focus, form > textarea:focus, form > button:hover {
     box-shadow: 0 0 10px mediumspringgreen;
 }
 
-/* Animation */
+#anmeldeBtn {
+    position: relative;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 327px;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-family: 'Play', sans-serif;
+    color: mediumspringgreen;
+    background-color: rgb(39, 39, 39);
+}
 
-/* Startpositionen */
+/*** ANIMATION ***/
 .spaceframe {
     position: relative;
     width: 300px;
@@ -104,6 +98,7 @@ form > input:focus, form > textarea:focus, form > button:hover {
     height: 100px;
     animation: loop1 60s infinite reverse linear;
 }
+
 .sterne2 {
     width: 300px;
     height: 100px;
@@ -115,6 +110,7 @@ form > input:focus, form > textarea:focus, form > button:hover {
     height: auto;
     animation: mond 30s infinite reverse linear;
 }
+
 .alien {
     width: 20%;
     height: auto;
@@ -133,18 +129,18 @@ form > input:focus, form > textarea:focus, form > button:hover {
 }
 
 @keyframes loop1 {
-   from { left: -100% }
-   to { left: 0px }
+   from {left: -100%}
+   to {left: 0px}
 }
 
 @keyframes loop2 {
-   from { left: 0px }
-   to { left: 100% }
+   from {left: 0px}
+   to {left: 100%}
 }
 
 @keyframes mond {
-	from { transform: translate(-60%) scale(0.7);}
-	to { transform: translate(300%)}
+	from {transform: translate(-60%) scale(0.7)}
+	to {transform: translate(300%)}
 }
 
 @keyframes qualm {
@@ -159,101 +155,66 @@ form > input:focus, form > textarea:focus, form > button:hover {
 	100% {transform:rotate(0deg)}
 }
 
+
+/*** RESPONSIVE ***/
 @media (min-width: 480px) {
-	.spaceframe { width: 450px; height: 242px; }
-	.landschaft1 { width: 450px; height: 242px; }
-	.landschaft2 { width: 450px; height: 242px; }
-	.sterne1 { width: 450px; height: 150px; }
-	.sterne2 { width: 450px; height: 150px; }
+	.spaceframe {
+        width: 450px;
+        height: 242px;
+    }
+
+	.landschaft1 {
+        width: 450px;
+        height: 242px;
+    }
+
+    .landschaft2
+    {
+        width: 450px;
+        height: 242px;
+    }
+
+	.sterne1 {
+        width: 450px;
+        height: 150px;
+    }
+	.sterne2 {
+        width: 450px;
+        height: 150px;
+    }
 }
 
 @media (min-width: 980px) {
-	.spaceframe { width: 600px; height: 330px; }
-	.landschaft1 { width: 600px; height: 330px; }
-	.landschaft2 { width: 600px; height: 330px; }
-	.sterne1 { width: 600px; height: 200px; }
-	.sterne2 { width: 600px; height: 200px; }
-	.alien { bottom: 50px;}
-	.qualm { bottom: 90px;}
-}
-
-/*Avatar Generieren*/
-
-h3 {
-    margin-top:150px;
-    font-size: 100px;
-    font-family: 'Play', sans-serif;
-    color: mediumspringgreen;
-}
-
-h3:hover {
-    color:white;
-}
-
-#schaltflaeche {
-    display:inline-block;
-}
-
-#alien {
-    width: 400px;
-    margin:0;
-}
-
-#leftButton {
-    position: relative;
-    float:left;
-    left:10%
-}
-
-#rightButton {
-    position: relative;
-    float:right;
-    right:10%
-}
-
-#auswahlButton {
-    position: relative;
-    padding: 5px;
-    margin-top:20px;
-    margin-left:327px;
-    border: 1px solid white;
-    border-radius: 4px;
-    font-family: 'Play', sans-serif;
-    color: mediumspringgreen;
-    background-color: rgb(39, 39, 39);
-}
-
-/*alien-floating-around*/
-.floating {
-    animation-name: floating;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    margin-left: 30px;
-    margin-top: 5px;
-}
-
-@keyframes floating {
-    from { transform: translate(0,  0px); }
-    65%  { transform: translate(0, 15px); }
-    to   { transform: translate(0, -0px); }
-}
-
-
-@media (max-width:521) {
-    #alien {
-      width: 200px;
-      
-    }
-    
-    #leftButton {
-        margin-left:auto;
-    }
-    
-    #rightButton {
-       
-        margin-right:auto;
+	.spaceframe {
+        width: 600px;
+        height: 330px;
     }
 
-    
+	.landschaft1 {
+        width: 600px;
+        height: 330px;
+    }
+
+	.landschaft2 {
+        width: 600px;
+        height: 330px;
+    }
+
+	.sterne1 {
+        width: 600px;
+        height: 200px;
+    }
+
+	.sterne2 {
+        width: 600px;
+        height: 200px;
+    }
+
+	.alien {
+        bottom: 50px;
+    }
+
+	.qualm {
+        bottom: 90px;
+    }
 }

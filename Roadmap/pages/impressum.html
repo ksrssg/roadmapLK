@@ -4,55 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Impressum</title>
+    <link rel="shortcut icon" href="../src/images/astronaut_PIXEL_LOGO.png" />
+
     <link rel="stylesheet" href="../src/style/style.css">
     <link rel="stylesheet" href="../src/style/impressum.css">
     <link href="https://fonts.googleapis.com/css?family=Cousine|Play&display=swap" rel="stylesheet">
 
     <script src="../src/script/lib.js"></script>
-
-    <link rel="shortcut icon" href="../src/images/astronaut_PIXEL_LOGO_2.png" />
 </head>
 <body>
-    <h1>Impressum</h1>
-    <main>
+
+  <h1>Impressum</h1>
+
+  <main>
+
+    <div id="textfeld">
+      <p>Roadmap.com is runned by Lenny Müller and Kristin Saueressig.</p>
+      <br>
+      <p>Registered address:</p>
+      <p>Roadmap GmbH <br> Hall 1 <br> 71032, Böblingen <br> Germany <br></p>
+      <br>
+      <p> The company is a limited liability company under German law with a share capital of 5,000€.</p>
+      <br>
+      <p> Registration number with the German Chamber of Commerce and Industry: XXXXXLXXXXXKXXXXX</p>
+      <br>
+      <p> Sales tax identification number: GER 1010.10.101.LK1</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <span id="lennyMail">
+        <h4>lenny.mueller@hpe.com </h4>
+      </span>
+
+      <span id="kristinMail">
+        <h4>kristin.saueressig@hpe.com</h4>
+      </span>
+
+    </div>
 
 
-      <div id="textfeld">
-        <p>Roadmap.com is runned by Lenny Müller and Kristin Saueressig.</p>
-        <br>
-        <p>Registered address:</p>
-        <p>Roadmap GmbH <br> Hall 1 <br> 71032, Böblingen <br> Germany <br></p>
-        <br>
-          <p> The company is a limited liability company under German law with a share capital of 5,000€.</p>
-          <br>
-          <p> Registration number with the German Chamber of Commerce and Industry: XXXXXLXXXXXKXXXXX</p>
-          <br>
-          <p> Sales tax identification number: GER 1010.10.101.LK1</p>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <span id="lennyMail"><h4>lenny.mueller@hpe.com </h4></span>
-          <span id="kristinMail"><h4>kristin.saueressig@hpe.com</h4></span>
-        </div>
-
-
-
-
-    <!-- Dropdown Menü -->
-  <div class="dropdown">
-        <div class="backgroundVisierDiv"></div>
-        <button onclick="openDropdown()" class="dropbutton interactiveElement" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#"><h2><audio controls autoplay="autoplay" loop id="playAudio"><source src="../src/images/spacemusic.mp3"></audio><img id="lautsprecher" src="../src/images/speaker.png" alt="lautsprecher" onclick="audioPlaying()"></h2></a>
-          <a href="#"><h2 onclick="goToHome()">Home</h2></a>
-          <a href="#"><h2 onclick="goToSettings()">Settings</h2></a>
-          <a href="#"><h2 onclick="goToImpressum()">Impressum</h2></a>
-         </div>
+    <!-- dropdown -->
+    <div class="dropdown">
+      <div class="backgroundVisierDiv"></div>
+      <button onclick="openDropdown()" class="dropbutton interactiveElement" type="submit"><img class="astrologo"
+          src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#">
+          <h2><audio controls autoplay="autoplay" loop id="playAudio">
+              <source src="../src/images/spacemusic.mp3"></audio><img id="lautsprecher" src="../src/images/speaker.png"
+              alt="lautsprecher" onclick="audioPlaying()"></h2>
+        </a>
+        <a href="#">
+          <h2 onclick="goToHome()">Home</h2>
+        </a>
+        <a href="#">
+          <h2 onclick="goToSettings()">Settings</h2>
+        </a>
+        <a href="#">
+          <h2 onclick="goToImpressum()">Impressum</h2>
+        </a>
       </div>
-    </main>
+    </div>
+
+  </main>
+
 </body>
 </html>

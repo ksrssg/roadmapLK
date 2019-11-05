@@ -1,20 +1,17 @@
+/*** GENERAL PAGE LAYOUT & DESIGN ***/
 .main {
     text-align: center;
 }
 
-.planets{
-    width: 110px;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-   
-}
 
+/*** PLANETS***/
+.planets {
+    width: 110px;
+    position: relative;
+}
 
 .planetsRing {
     width: 140px;
-    margin: 0;
-    padding: 0;
     position: relative;
 }
 
@@ -39,14 +36,12 @@ table#planetTable {
 }
 
 #alien {
-    padding: 0;
     width: 170px;
     display: block;
     margin-right: auto;
     margin-right: auto;
     margin-top: 10px;
 }
-
 
 #speechbubble {
     background-image: url("../images/speechbubble.png");
@@ -66,7 +61,6 @@ table#planetTable {
     padding-bottom: 40px;
 }
 
-/* zoom when hoven on planets */
 table#planetTable td img {
     height: 100px; 
     overflow: visible;
@@ -78,8 +72,7 @@ table#planetTable td img:hover {
 }
 
 
-
-
+/*** RESPONSIVE ***/
 @media (max-width: 810px){
     table#planetTable {
         transform: rotate(90deg);

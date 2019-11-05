@@ -12,11 +12,12 @@ var alienArray = ["../src/images/alien.png",
                     "../src/images/alien_pink.png",
                     "../src/images/alien_orange.png"]; //alien colorways
 
-
 var key; //API key
 var listIDs = []; //array with IDs to all lists in backend
 var semesterData; //userdata of specific semester
 
+
+/*** ONLOAD ***/
 if (document.title == "Impressum") {
   getKey();
 }
@@ -88,7 +89,7 @@ function startAnimatedGradient() {
 }
 
 
-/*** DROPDOWN MENUE ***/
+/*** DROPDOWN ***/
 function openDropdown() {
   /*
    * shows and hides dropdown
@@ -131,7 +132,7 @@ function generateEvent(titel, date, text, done) {
     "text" : text
   }
 
-  var event = { //necessary formating, can be processed in backend
+  var event = { //necessary formating, object can be processed in backend
     "name" : JSON.stringify(name),
     "bought" : false
   }
@@ -174,17 +175,17 @@ function sortItems(items) {
   return eventList;
 }
 
+
 /*** HTTP-REQUESTS ***/
 function getData(id, callback) {
   /*
-   * Sendet eine HTTP Anfrage an das Backend und fordert eine Liste an
+   * sends HTTP request to backend and adds an item to the list
    *
-   * !Asynchrone Funktion, es kann ein Callback übergeben werden
-   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   * !asynchronous function, callbacks may be passed
    *
-   * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
-   * @callback {Function oder Boolean}
-   * @return {}: die Methode aktualisiert "semesterData"
+   * @parameter {string}: id of list
+   * @callback {function or false}
+   * @return {}
    */
   var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id;
@@ -213,8 +214,8 @@ function addItemToList(id, item, callback) {
    *
    * !asynchronous function, callbacks may be passed
    *
-   * @parameter {String}: ID of List
-   * @parameter {JSON Object}: Item, which is to be added
+   * @parameter {string}: ID of List
+   * @parameter {JSON object}: item, which is to be added
    * @callback {function or false}
    * @return {}: the function updates "semesterData"
    */
@@ -243,14 +244,14 @@ function addItemToList(id, item, callback) {
 
 function updateItemInList(id, item, itemId, callback) {
   /*
-   * sends HTTP request to backend and adds an item to the list
+   * sends HTTP request to backend and updates an item
    *
    * !asynchronous function, callbacks may be passed
    *
-   * @parameter {String}: ID of List
-   * @parameter {JSON Object}: Item, which is to be added
+   * @parameter {string}: IDs of list and item
+   * @parameter {JSON object}: item, which is to be changed
    * @callback {function or false}
-   * @return {}: the function updates "semesterData"
+   * @return {}
    */
   var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id + "/items/" + itemId;
@@ -281,10 +282,10 @@ function deleteItemFromList(id, itemid, callback) {
    *
    * !asynchronous function, callbacks may be passed
    *
-   * @parameter {String}: ID of list
-   * @parameter {String}: ID of item, which is to be deleted
+   * @parameter {string}: ID of list
+   * @parameter {string}: ID of item, which is to be deleted
    * @callback {function or false}
-   * @return {}: function updates "semesterData"
+   * @return {}
    */
   var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id + "/items/" + itemid;
@@ -355,9 +356,10 @@ function getAllLists(callback) {
       listIDs = sortSemester(answer);
 
       if (document.getElementById("alien")) {
-        setAlienIndex();
+        console.log(answer);
+        avatarIndex = (answer[0]["items"][0]["name"]);
+        document.getElementById("alien").src=alienArray[avatarIndex];
       }
-
 
       if (callback) {
         callback();
@@ -374,14 +376,13 @@ function getAllLists(callback) {
 
 function createNewList(name, callback) {
   /*
-   * Sendet eine HTTP Anfrage an das Backend und fordert eine Liste an
+   * sends HTTP request to backend and creats a new list
    *
-   * !Asynchrone Funktion, es kann ein Callback übergeben werden
-   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   * !asynchronous function, callbacks may be passed
    *
-   * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
-   * @callback {Function oder Boolean}
-   * @return {}: die Methode aktualisiert "semesterData"
+   * @callback {function or false}
+   * @parameter {string}: name of new backend list
+   * @return {}
    */
   var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists';
@@ -412,14 +413,13 @@ function createNewList(name, callback) {
 
 function deleteList(id, callback) {
   /*
-   * Sendet eine HTTP Anfrage an das Backend und fordert eine Liste an
+   * sends HTTP request to backend and deletes a list
    *
-   * !Asynchrone Funktion, es kann ein Callback übergeben werden
-   * !Funktion hat kein Error Handling bei fehlerhaften Anfragen
+   * !asynchronous function, callbacks may be passed
    *
-   * @parameter {String}: ID der Liste, die im Backend hinterlegt ist
-   * @callback {Function oder Boolean}
-   * @return {}: die Methode aktualisiert "semesterData"
+   * @callback {function or false}
+   * @parameter {string}: id of list which is to be deleted
+   * @return {}: function updates "listIDs"
    */
   var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + id;
@@ -443,20 +443,7 @@ function deleteList(id, callback) {
 }
 
 
-
-
-
-
-
 function validate() {
-  /*
-   * sends HTTP request to backend and gets all list information available
-   *
-   * !asynchronous function, callbacks may be passed
-   *
-   * @callback {function or false}
-   * @return {}: function updates "listIDs"
-   */
   var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/';
   request.open("GET", url);
@@ -474,11 +461,11 @@ function validate() {
         }
       });
 
-      if (answer.length = 1) {
-        //open first page
+      if (answer.length == 0) {
+        createNewList("List00", initialColorway);
+      } else {
+        window.open("pages/home.html?key=" + key, "_self");
       }
-
-      window.open("pages/home.html?key=" + key, "_self");
 
     }
   }
@@ -497,9 +484,6 @@ function getKey() {
   }
 }
 
-
-
-
 function getNumber(string) {
   var a = string.charAt(string.length-2);
   var b = string.charAt(string.length-1);
@@ -510,7 +494,6 @@ function getNumber(string) {
         return a + b;
     }
 }
-
 
 
 /*** AUTOPLAY ***/
@@ -535,18 +518,19 @@ function audioPlaying() {
 }
 
 function goToHome() {
+  //opens page "home" with parameters
   window.open("home.html?key=" + key, "_self");
 }
 
 function goToImpressum() {
+  //opens page "impressum" with parameters
   window.open("impressum.html?key=" + key, "_self");
 }
 
 function goToSettings() {
+  //opens page "settings" with parameters
   window.open("avatar.html?key=" + key, "_self");
 }
-
-
 
 function login() {
   /*
@@ -560,7 +544,6 @@ function login() {
 
 
 function safeColorway(colorIndex, callback) {
-
     var request = new XMLHttpRequest();
     let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + listIDs[0];
     request.open("GET", url);
@@ -597,31 +580,7 @@ function safeColorway(colorIndex, callback) {
     }
 
     request.send();
-
-
-
 }
-
-function setAlienIndex() {
-  var request = new XMLHttpRequest();
-  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + listIDs[0];
-  request.open("GET", url);
-
-  request.onreadystatechange = () => {
-    if (request.readyState == 4 && request.status == 200) {
-      let answer = JSON.parse(request.responseText);
-      avatarIndex = colorId = (answer["items"][0]["name"]);
-      document.getElementById("alien").src=alienArray[avatarIndex];
-    }
-  }
-
-  request.onerror = () => {
-    console.warn("HTTP request failed");
-  }
-
-  request.send();
-}
-
 
 function initialColorway() {
   var request = new XMLHttpRequest();
@@ -629,6 +588,12 @@ function initialColorway() {
   request.open("POST", url, true);
   request.setRequestHeader("Content-type", "application/json");
   var data = JSON.stringify({ "name" : "0"});
+
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      window.open("pages/home.html?key=" + key, "_self");
+    }
+  }
 
   request.onerror = () => {
     console.error("HTTP Request fehlgeschlagen");

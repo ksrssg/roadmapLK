@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Roadmap</title>
+    <link rel="shortcut icon" href="../src/images/astronaut_PIXEL_LOGO.png" /> 
 
     <link rel="stylesheet" href="../src/style/style.css">
     <link rel="stylesheet" href="../src/style/roadmapstyle.css">
@@ -13,35 +14,41 @@
 
     <script src="../src/script/lib.js"></script>
     <script src="../src/script/roadmap.js"></script>
-
-    <link rel="shortcut icon" href="../src/images/astronaut_PIXEL_LOGO_2.png" /> 
 </head>
 <body>
-
- <!-- Dropdown Menü -->
- <div class="dropdown">
+  
+  <!-- dropdown -->
+  <div class="dropdown">
     <div class="backgroundVisierDiv"></div>
-    <button onclick="openDropdown()" class="dropbutton interactiveElement" type="submit"><img class="astrologo" src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
+    <button onclick="openDropdown()" class="dropbutton interactiveElement" type="submit"><img class="astrologo"
+        src="../src/images/astronaut_PIXEL_LOGO_2.png" alt="Logo???"></button>
     <div id="myDropdown" class="dropdown-content">
-      <a href="#"><h2><audio controls autoplay="autoplay" loop id="playAudio"><source src="../src/images/spacemusic.mp3"></audio><img id="lautsprecher" src="../src/images/speaker.png" alt="lautsprecher" onclick="audioPlaying()"></h2></a>
-      <a href="#"><h2 onclick="goToHome()">Home</h2></a>
-      <a href="#"><h2 onclick="goToSettings()">Settings</h2></a>
-      <a href="#"><h2 onclick="goToImpressum()">Impressum</h2></a>
-     </div> 
+      <a href="#">
+        <h2><audio controls autoplay="autoplay" loop id="playAudio">
+            <source src="../src/images/spacemusic.mp3"></audio><img id="lautsprecher" src="../src/images/speaker.png"
+            alt="lautsprecher" onclick="audioPlaying()"></h2>
+      </a>
+      <a href="#">
+        <h2 onclick="goToHome()">Home</h2>
+      </a>
+      <a href="#">
+        <h2 onclick="goToSettings()">Settings</h2>
+      </a>
+      <a href="#">
+        <h2 onclick="goToImpressum()">Impressum</h2>
+      </a>
+    </div>
   </div>
 
+  <h1 id="headline">Roadmap</h1>
 
+  <main>
+    
+    <ul id="roadmap"></ul>
+    
+    <div id="interface">
 
-<h1 id="headline">Roadmap</h1>
-
-<main>
-
-  <ul id="roadmap"></ul>
-
-
-  <div id="interface">
-
-    <form id="addEvent">
+      <form id="addEvent">
 
         <label for="name">Name</label>
         <input type="text" name="name" placeholder="Name">
@@ -51,44 +58,42 @@
 
         <label for="text">Beschreibung</label>
         <input type="text" name="text" placeholder="Beschreibung (Optional)">
-        
+
         <button type="button" onclick="addNewEvent()">Hinzufügen</button>
         <button type="button" onclick="cancel()">Abbrechen</button>
 
-    </form>
+      </form>
 
-    <form id="editEvent">
+      <form id="editEvent">
 
-          <label for="name">Name</label>
-          <input type="text" name="name" placeholder="Name">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Name">
 
-          <label for="date">Fälligkeitsdatum</label>
-          <input type="date" name="date" placeholder="TT.MM.JJJJ">
+        <label for="date">Fälligkeitsdatum</label>
+        <input type="date" name="date" placeholder="TT.MM.JJJJ">
 
-          <label for="text">Beschreibung</label>
-          <input type="text" name="text" placeholder="Beschreibung (Optional)">
+        <label for="text">Beschreibung</label>
+        <input type="text" name="text" placeholder="Beschreibung (Optional)">
 
-          <button type="button" onclick="safeChanges()">Speichern</button>
-          <button name="doneButton" type="button" onclick="markAsDone()">Erledigt</button>
-          <button type="button" onclick="deleteEvent()">Löschen</button>
+        <button type="button" onclick="safeChanges()">Speichern</button>
+        <button name="doneButton" type="button" onclick="markAsDone()">Erledigt</button>
+        <button type="button" onclick="deleteEvent()">Löschen</button>
 
-    </form>
+      </form>
 
-  </div>
+    </div>
 
-  <div onclick="addEvent()" id="addButton" class="interactiveElement">+</div>
-  <div onclick="removeSemester()" id="removeButton" class="interactiveElement" title="Semester entfernen">-</div>
+    <div onclick="addEvent()" id="addButton" class="interactiveElement">+</div>
+    <div onclick="removeSemester()" id="removeButton" class="interactiveElement" title="Semester entfernen">-</div>
 
-<div id="avatar">
+    <div id="avatar">
 
-<img id="alien" class="floating" src="../src/images/alien.png" alt="Avatar">
-<div id="speechbubble" class="floating"> Drücke auf das + um deinem Semester Ereignisse hinzuzufügen!</div>
+      <img id="alien" class="floating" src="../src/images/alien.png" alt="Avatar">
+      <div id="speechbubble" class="floating"> Drücke auf das + um deinem Semester Ereignisse hinzuzufügen!</div>
 
-</div>
+    </div>
 
-</main>
-
-
+  </main>
 
 </body>
 </html>
