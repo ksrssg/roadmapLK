@@ -462,7 +462,7 @@ function validate() {
         //open first page
       }
 
-      window.open("home.html?key=" + key, "_self");
+      window.open("pages/home.html?key=" + key, "_self");
 
     }
   }

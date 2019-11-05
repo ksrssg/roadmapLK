@@ -26,9 +26,12 @@ main {
     border-radius: 4px;
     font-family: 'Play', sans-serif;
     color: mediumspringgreen;
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(39, 39, 39);    
+}
 
-    
+#demokey {
+    position: relative;
+
 }
 
 form {
@@ -42,6 +45,11 @@ form > label {
     margin: 12px 0 4px 0; 
     font-family: 'Play', sans-serif;
     color: rgb(235, 235, 235);
+}
+
+form > label span {
+    font-size: 10px;
+    color: mediumspringgreen;
 }
 
 form > input {
@@ -73,7 +81,7 @@ form > input:focus, form > textarea:focus, form > button:hover {
     overflow: hidden; 
     border-top-left-radius: 300px; 
     border-top-right-radius: 300px; 
-    border: 2px solid gainsboro
+    border: 2px solid var(--AnimatedNeoncolor);
 }
 
 .spaceframe img { 
@@ -172,14 +180,14 @@ form > input:focus, form > textarea:focus, form > button:hover {
 
 /*Avatar Generieren*/
 
-h2 {
+h3 {
     margin-top:150px;
     font-size: 100px;
     font-family: 'Play', sans-serif;
     color: mediumspringgreen;
 }
 
-h2:hover {
+h3:hover {
     color:white;
 }
 

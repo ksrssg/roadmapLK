@@ -15,6 +15,8 @@ var textArray = ["Mein Name ist Alley!",
 
 
 /*** ONLOAD ***/
+startAnimatedGradient(); 
+
 window.onload = () => {
     /*
      * update listIDs
