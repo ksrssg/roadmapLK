@@ -23,7 +23,7 @@ window.onload = () => {
   document.getElementById("headline").innerHTML = "Semester <span>" + semesterNumber + "</span>";
   getData(semesterListID, printList);
 
-  //startAnimatedGradient();
+  startAnimatedGradient();
 }
 
 

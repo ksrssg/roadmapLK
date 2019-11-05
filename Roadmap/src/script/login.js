@@ -39,6 +39,9 @@ function validateAccount() {
 
 
 
+
+
+
 function switchforeward() {
 
     if(index <=5) {

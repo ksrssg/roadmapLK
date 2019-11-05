@@ -118,10 +118,6 @@ a:visited {
   float: right;
 }
 
-.backgroundVisierDiv:hover {
-  filter: invert(1);
-}
-
 /* dropdown button position*/
 .dropdown {
   position: fixed;
@@ -143,13 +139,19 @@ a:visited {
 }
   
 /* Subsites bei Dropdown*/
-.dropdown-content a {
+.dropdown-content h2 {
+  font-size: 15px;
   color: white;
   text-align: center;
   padding: 5px;
   text-decoration: none;
   display: block;
 }
+
+.dropdown-content h2:hover {
+  cursor:url('../images/rocketcursor.png'), auto;
+}
+
   
 /*Frabe von Dropdown verändern beim Hovern*/
 .dropdown-content a:hover {

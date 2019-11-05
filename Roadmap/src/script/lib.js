@@ -79,9 +79,9 @@ function startAnimatedGradient() {
 
 
 /*** DROPDOWN MENUE ***/
-function myFunction() {
+function openDropdown() {
   /*
-   * shows and hides dropdown menue
+   * shows and hides dropdown 
    *
    * @return {}
    */
@@ -516,4 +516,16 @@ function audioPlaying() {
     } else {
         document.getElementById("playAudio").play();
     }
+}
+
+function goToHome() {
+  window.open("home.html?key=" + key, "_self");
+}
+
+function goToImpressum() {
+  window.open("impressum.html?key=" + key, "_self");
+}
+
+function goToSettings() {
+  window.open("avatar.html?key=" + key, "_self");
 }
