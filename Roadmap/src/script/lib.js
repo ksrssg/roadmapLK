@@ -454,7 +454,6 @@ function validate() {
 
       answer.forEach(list => {
         if (isNaN(getNumber(list["name"]))) {
-          console.log(getNumber(list["name"]));
           alert("KEY ungültig!");
           return;
         }
@@ -559,7 +558,6 @@ function safeColorway(colorIndex, callback) {
 
         request2.onreadystatechange = () => {
           if (request2.readyState == 4 && request2.status == 200) {
-            console.log(JSON.parse(request2.responseText));
             if (callback) {
               callback();
             }

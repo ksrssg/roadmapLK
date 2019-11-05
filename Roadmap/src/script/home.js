@@ -116,7 +116,7 @@ function printLists() {
 
     var td = document.createElement("td");
     td.innerHTML = '<img title="füge ein Semester hinzu" alt="add Semester" id="semesterAdd" class="planets interactiveElement" src="../src/images/planetAdd.png" onclick="addSemester()" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="Add Planet">';
-        
+
     if (listIDs.length % 2) { //odd number
         odd.appendChild(td);
         even.appendChild(document.createElement("td"));
@@ -133,7 +133,11 @@ function changesemestertext(id) {
      * @ parameter {string}: id of planet
      * @ return {}
      */
-    document.getElementById("speechbubble").innerHTML = "Semester " + getNumber(id);
+    if (getNumber(id) == "dd") {
+      document.getElementById("speechbubble").innerHTML = "Semester hinzufügen";
+    } else {
+      document.getElementById("speechbubble").innerHTML = "Semester " + getNumber(id);
+    }
 }
 
 function changetextback() {
