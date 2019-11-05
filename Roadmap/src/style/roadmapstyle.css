@@ -34,9 +34,9 @@ ul#roadmap > li.done span.eventHeader, ul#roadmap > li.done span.eventText {
 div#interface {
     position: fixed;
     display: none;
-    right: 150px;
-    top: 150px;
-    z-index: 100;
+    right: 12%;
+    top: 20%;
+    z-index: 5;
     width: fit-content;
     height: fit-content;
     padding: 15px;
@@ -107,8 +107,16 @@ div#addButton {
     color: var(--AnimatedNeoncolor);
     font-size: 100px;
     position: fixed;
-    left:100px;
-    top:70px;
+    left:8%;
+    top:10%;
+}
+
+div#removeButton {
+    color: var(--AnimatedNeoncolor);
+    font-size: 100px;
+    position: fixed;
+    left:9%;
+    top:25%;
 }
 
 #alien {
@@ -140,8 +148,62 @@ div#addButton {
 
 
 /*** RESPONSIVE ***/
-@media only screen and (max-width: 600px) {
+@media (max-width: 1272px) {
+    #avatar {
+        visibility: hidden;
+    }
     div#interface {
-        display: none;
+        top:30%;
     }
 }
+
+@media (max-width: 914px) {
+    div#addButton {
+        left:5%;
+        
+    }
+    
+    div#removeButton {
+        left:6%;
+    }
+}
+@media (max-width: 669px) {
+    div#addButton {
+        left:2%;
+        
+    }
+    
+    div#removeButton {
+        left:3%;
+    }
+}
+
+@media (max-width:657px) {
+
+    h1 {
+        font-size: 45px;
+    }
+    div#addButton {
+        left:20%;
+        top:10%
+    }
+    
+    div#removeButton {
+        left:60%;
+        top:10%;
+    }
+
+    ul#roadmap {
+        margin-top:30%
+    }
+
+    div#interface {
+        top:50%;
+        right: 0;
+        left: 0;
+        margin-left: -11%;
+        transform: scale(0.5);
+    }
+}
+
+

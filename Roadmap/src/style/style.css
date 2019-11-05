@@ -105,6 +105,7 @@ a:visited {
   margin-bottom: 1px;
   font-size: 16px;
   border: none;
+  z-index: 100;
 }
 
 .backgroundVisierDiv {
@@ -135,7 +136,7 @@ a:visited {
   padding: 0px;
   margin: 2x;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  
 }
   
 /* Subsites bei Dropdown*/
@@ -179,7 +180,7 @@ a:visited {
   display: block;
 }
 
-@media (max-width:455px) {
+@media (max-width:657px) {
   .dropbutton {
     visibility: hidden;
   }
