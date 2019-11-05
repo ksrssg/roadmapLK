@@ -356,7 +356,6 @@ function getAllLists(callback) {
       listIDs = sortSemester(answer);
 
       if (document.getElementById("alien")) {
-        console.log(answer);
         avatarIndex = (answer[0]["items"][0]["name"]);
         document.getElementById("alien").src=alienArray[avatarIndex];
       }
