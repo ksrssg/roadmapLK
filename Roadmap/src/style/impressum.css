@@ -1,0 +1,40 @@
+main {
+    align-items: center;
+}
+
+#textfeld {
+    width:600px;
+    height:400px;
+    background: rgba(68, 68, 68, 0.5);    
+    border: 3px solid var(--AnimatedNeoncolor);
+    border-radius: 30px;
+    padding:10px ;
+    margin:auto;
+    margin-top: 50px;
+    text-align:centre;
+}
+
+#textfeld p  {
+    text-align: center;
+    color: white solid;
+    font-family: 'Play', sans-serif, bold;
+    font-size: 15px; 
+}
+
+h4 {
+    color: mediumspringgreen;
+    font-family: 'Play', sans-serif, bold;
+    font-size: 15px; 
+}
+
+#lennyMail {
+    position: relative;
+    float:left;
+    text-decoration: underline mediumspringgreen;
+}
+
+#kristinMail {
+    position: relative;
+    float: right;
+    text-decoration: underline mediumspringgreen;
+}

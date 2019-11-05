@@ -10,6 +10,7 @@
    
 }
 
+
 .planetsRing {
     width: 140px;
     margin: 0;
@@ -77,11 +78,7 @@ table#planetTable td img:hover {
 }
 
 
-@media (max-width: 1250px) {
-    #speechbubble {
-        visibility: hidden;
-    }
-}
+
 
 @media (max-width: 810px){
     table#planetTable {
@@ -99,6 +96,10 @@ table#planetTable td img:hover {
     
     table#planetTable td img:hover {
         transform: scale(1.5) rotate(270deg);
+    }
+
+    #speechbubble {
+        visibility: hidden;
     }
 }
 

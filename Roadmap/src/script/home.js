@@ -50,6 +50,7 @@ function addSemester() {
 
     let name = "Semester" + number;
     createNewList(name, printLists);
+
 }
 
 function openRoadmap(id) {
@@ -97,12 +98,12 @@ function printLists() {
 
         if (i % 2) { //odd number
             var td = document.createElement("td");
-            td.innerHTML = '<img id="semester' + number + '" class="planets interactiveElement" src="' + planets[index++] + '" onclick="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1">';
+            td.innerHTML = '<img title="Semester ' + getNumber(number) + '"  id="semester' + number + '" class="planets interactiveElement" src="' + planets[index++] + '" onclick="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1">';
             odd.appendChild(td);
             even.appendChild(document.createElement("td"));
         } else { //even number
             var td = document.createElement("td");
-            td.innerHTML = '<img id="semester' + number + '" class="planetsRing interactiveElement" src="' + planets[index++] + '" onclick="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1">';
+            td.innerHTML = '<img title="Semester ' + getNumber(number) + '"  id="semester' + number + '" class="planetsRing interactiveElement" src="' + planets[index++] + '" onclick="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1">';
             even.appendChild(td);
             odd.appendChild(document.createElement("td"));
         }

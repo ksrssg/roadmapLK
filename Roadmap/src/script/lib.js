@@ -8,12 +8,13 @@ var key; //API key
 var listIDs = []; //array with IDs to all lists in backend
 var semesterData; //userdata of specific semester
 
-if (document.title = "impressum") {
+if (document.title == "impressum") {
   getKey();
 }
 
+/*
 startAnimatedGradient();
-
+*/
 
 /*** ANIMATED GRADIENT ***/
 var animatedGradient; //animated gradient
