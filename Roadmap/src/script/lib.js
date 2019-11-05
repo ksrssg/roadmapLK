@@ -3,18 +3,26 @@ var rgb = [255, 0, 0]; //Array mit RGB-Werten für animierten Gradient
 var indexColor = 1; //Index für den Algorithmus des animierten Gradients
 var add = true; //Anweisung für den Algorithmus des animierten Gradients
 var timer = 20; //Timer des animierten Gradients
+var alienArray = ["../src/images/alien.png",
+                    "../src/images/alien_red.png",
+                    "../src/images/alien_yellow.png",
+                    "../src/images/alien_hpe.png",
+                    "../src/images/alien_blue.png",
+                    "../src/images/alien_lila.png",
+                    "../src/images/alien_pink.png",
+                    "../src/images/alien_orange.png"]; //alien colorways
+
 
 var key; //API key
 var listIDs = []; //array with IDs to all lists in backend
 var semesterData; //userdata of specific semester
 
-if (document.title == "impressum") {
+if (document.title == "Impressum") {
   getKey();
 }
 
-/*
 startAnimatedGradient();
-*/
+
 
 /*** ANIMATED GRADIENT ***/
 var animatedGradient; //animated gradient
@@ -345,6 +353,12 @@ function getAllLists(callback) {
     if (request.readyState == 4 && request.status == 200) {
       var answer = JSON.parse(request.responseText);
       listIDs = sortSemester(answer);
+
+      if (document.getElementById("alien")) {
+        setAlienIndex();
+      }
+
+
       if (callback) {
         callback();
       }
@@ -542,4 +556,83 @@ function login() {
    */
     key = document.forms["login"]["key"].value;
     validate();
+}
+
+
+function safeColorway(colorIndex, callback) {
+
+    var request = new XMLHttpRequest();
+    let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + listIDs[0];
+    request.open("GET", url);
+
+    request.onreadystatechange = () => {
+      if (request.readyState == 4 && request.status == 200) {
+        let answer = JSON.parse(request.responseText);
+        var colorId = (answer["items"][0]["_id"]);
+        var request2 = new XMLHttpRequest();
+        let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + listIDs[0] + "/items/" + colorId;
+        request2.open("PUT", url, true);
+        request2.setRequestHeader("Content-type", "application/json");
+        var data = JSON.stringify( {"name":colorIndex});
+
+        request2.onreadystatechange = () => {
+          if (request2.readyState == 4 && request2.status == 200) {
+            console.log(JSON.parse(request2.responseText));
+            if (callback) {
+              callback();
+            }
+          }
+        }
+
+        request2.onerror = () => {
+          console.error("HTTP Request fehlgeschlagen");
+        }
+
+        request2.send(data);
+      }
+    }
+
+    request.onerror = () => {
+      console.warn("HTTP request failed");
+    }
+
+    request.send();
+
+
+
+}
+
+function setAlienIndex() {
+  var request = new XMLHttpRequest();
+  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + listIDs[0];
+  request.open("GET", url);
+
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      let answer = JSON.parse(request.responseText);
+      avatarIndex = colorId = (answer["items"][0]["name"]);
+      document.getElementById("alien").src=alienArray[avatarIndex];
+    }
+  }
+
+  request.onerror = () => {
+    console.warn("HTTP request failed");
+  }
+
+  request.send();
+}
+
+
+function initialColorway() {
+  var request = new XMLHttpRequest();
+  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + listIDs[0] + "/items";
+  request.open("POST", url, true);
+  request.setRequestHeader("Content-type", "application/json");
+  var data = JSON.stringify({ "name" : "0"});
+
+  request.onerror = () => {
+    console.error("HTTP Request fehlgeschlagen");
+  }
+
+  request.send(data);
 }
