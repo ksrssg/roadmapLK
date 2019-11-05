@@ -8,9 +8,10 @@ var listIDs = []; //array with IDs to all lists in backend
 var semesterData; //userdata of specific semester
 
 
-//*********************************************************/
-var key = "e11b8d8fbab8d6397852f6beae012799";
-//*********************************************************/
+var key;
+
+
+
 
 
 /*** ANIMATED GRADIENT ***/
@@ -318,8 +319,6 @@ function getAllLists(callback) {
      * @return {array}: listIDs
      */
     var sortedListIDs = [];
-
-    console.log(lists);
   
     lists.forEach(list => {
       var a = list["name"].charAt(list["name"].length-2);
@@ -425,6 +424,61 @@ function deleteList(id, callback) {
   }
 
   request.send();
+}
+
+
+
+
+
+
+
+function validate() {
+  /*
+   * sends HTTP request to backend and gets all list information available
+   *
+   * !asynchronous function, callbacks may be passed
+   *
+   * @callback {function or false}
+   * @return {}: function updates "listIDs"
+   */
+  var request = new XMLHttpRequest();
+  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/';
+  request.open("GET", url);
+  request.setRequestHeader("Authorization", key);
+
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      var answer = JSON.parse(request.responseText);
+      
+      answer.forEach(list => {
+        if (isNaN(getNumber(list["name"]))) {
+          console.log(getNumber(list["name"]));
+          alert("KEY ungültig!");
+          return;
+        }
+      });
+
+      if (answer.length = 1) {
+        //open first page
+      }
+
+      window.open("home.html?key=" + key, "_self");
+
+    }
+  }
+
+  request.onerror = () => {
+    console.warn("HTTP request failed");
+  }
+
+  request.send();
+}
+
+
+function getKey() {
+  if (document.title != "LogIn") {
+    key = new URLSearchParams(window.location.search).get("key");
+  }
 }
 
 

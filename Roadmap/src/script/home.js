@@ -19,6 +19,7 @@ window.onload = () => {
     /*
      * update listIDs
      */
+    getKey();
     getAllLists(printLists);
 }
 
@@ -68,7 +69,7 @@ function openRoadmap(id) {
         index = a + b;
     }
 
-    window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[index],"_self");
+    window.open("roadmap.html?semester=" + id + "&listid=" + listIDs[index] + "&key=" + key, "_self");
 }
   
 

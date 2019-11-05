@@ -9,6 +9,7 @@ window.onload = () => {
    * display data according to semester number
    * starts animated gradient
    */
+  getKey(); 
   var id = new URLSearchParams(window.location.search).get("semester");
   semesterListID = new URLSearchParams(window.location.search).get("listid");
   var semesterNumber;
