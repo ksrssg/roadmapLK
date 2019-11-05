@@ -1,4 +1,4 @@
-﻿﻿/*** VARIABLES ***/
+﻿﻿﻿﻿/*** VARIABLES ***/
 var rgb = [255, 0, 0]; //Array mit RGB-Werten für animierten Gradient
 var indexColor = 1; //Index für den Algorithmus des animierten Gradients
 var add = true; //Anweisung für den Algorithmus des animierten Gradients
@@ -355,9 +355,10 @@ function getAllLists(callback) {
       listIDs = sortSemester(answer);
 
       if (document.getElementById("alien")) {
-        setAlienIndex();
+        console.log(answer);
+        avatarIndex = (answer[0]["items"][0]["name"]);
+        document.getElementById("alien").src=alienArray[avatarIndex];
       }
-
 
       if (callback) {
         callback();
@@ -474,11 +475,11 @@ function validate() {
         }
       });
 
-      if (answer.length = 1) {
-        //open first page
+      if (answer.length == 0) {
+        createNewList("List00", initialColorway);
+      } else {
+        window.open("pages/home.html?key=" + key, "_self");
       }
-
-      window.open("pages/home.html?key=" + key, "_self");
 
     }
   }
@@ -602,33 +603,18 @@ function safeColorway(colorIndex, callback) {
 
 }
 
-function setAlienIndex() {
-  var request = new XMLHttpRequest();
-  let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + listIDs[0];
-  request.open("GET", url);
-
-  request.onreadystatechange = () => {
-    if (request.readyState == 4 && request.status == 200) {
-      let answer = JSON.parse(request.responseText);
-      avatarIndex = colorId = (answer["items"][0]["name"]);
-      document.getElementById("alien").src=alienArray[avatarIndex];
-    }
-  }
-
-  request.onerror = () => {
-    console.warn("HTTP request failed");
-  }
-
-  request.send();
-}
-
-
 function initialColorway() {
   var request = new XMLHttpRequest();
   let url = 'https://shopping-lists-api.herokuapp.com/api/v1/lists/' + listIDs[0] + "/items";
   request.open("POST", url, true);
   request.setRequestHeader("Content-type", "application/json");
   var data = JSON.stringify({ "name" : "0"});
+
+  request.onreadystatechange = () => {
+    if (request.readyState == 4 && request.status == 200) {
+      window.open("pages/home.html?key=" + key, "_self");
+    }
+  }
 
   request.onerror = () => {
     console.error("HTTP Request fehlgeschlagen");

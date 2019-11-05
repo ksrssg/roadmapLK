@@ -1,4 +1,4 @@
-﻿/*** VARIABLES ***/
+﻿﻿/*** VARIABLES ***/
 var semesterListID; //ID of current list
 var activeItem; //Item, which is edited
 
@@ -10,10 +10,11 @@ window.onload = () => {
    * starts animated gradient
    */
   getKey();
-  getAllLists(false); 
-  
+  getAllLists(false);
+
   var id = new URLSearchParams(window.location.search).get("semester");
   semesterListID = new URLSearchParams(window.location.search).get("listid");
+  var lastSemester = new URLSearchParams(window.location.search).get("last");
   var semesterNumber;
   var a = id.charAt(id.length-2);
   var b = id.charAt(id.length-1);
@@ -24,6 +25,12 @@ window.onload = () => {
   }
   document.getElementById("headline").innerHTML = "Semester <span>" + semesterNumber + "</span>";
   getData(semesterListID, printList);
+  console.log(lastSemester);
+  if (lastSemester == "true") {
+    document.getElementById("removeButton").style.display = "block";
+  } else {
+    document.getElementById("removeButton").style.display = "none";
+  }
 }
 
 
@@ -109,7 +116,13 @@ function deleteEvent() {
    *
    * @return {}
    */
-  deleteItemFromList(semesterListID, activeItem["id"], false);
+   function hide() {
+     if (semesterData == 0) {
+       document.getElementById("roadmap").style.visibility = "hidden";
+     }
+   }
+
+  deleteItemFromList(semesterListID, activeItem["id"], hide);
   document.getElementById(activeItem["id"]).remove();
   document.getElementById("addButton").style.display = "block";
   document.getElementById("interface").style.display = "none";
@@ -138,7 +151,9 @@ function addNewEvent() {
    */
   var name = document.forms["addEvent"]["name"].value;
   var date = document.forms["addEvent"]["date"].value;
-  var text = document.forms["addEvent"]["text"].value;
+  var text = document.forms["addEvent"]["text"].value
+
+  document.getElementById("roadmap").style.visibility = "visible";
 
   if (!(validateInput(name, date))) {
     console.error("could not process data");
@@ -150,6 +165,12 @@ function addNewEvent() {
 
   document.getElementById("addButton").style.display = "block";
   document.getElementById("interface").style.display = "none";
+}
+
+function removeSemester() {
+  if (confirm("Möchtest du dieses Semester wirklich löschen?")) {
+    deleteList(semesterListID, goToHome);
+  }
 }
 
 
@@ -185,18 +206,23 @@ function printList() {
     return(date);
   }
 
-  for (let i = 0; i < semesterData.length; i++) {
-    var entry = document.createElement("li");
-    entry.id = semesterData[i]["id"];
-    var date = formatDate(semesterData[i]["date"]);
-    entry.innerHTML = '<span class="eventHeader">' + date + ': ' + semesterData[i]["name"] + ' </span><span class="editArea">[<span class="interactive" onclick="edit(this.closest(' + "'li')" + '.id)">EDIT</span>]</span><br><span class="eventText">' + semesterData[i]["text"] + '</span>';
+  if (semesterData.length == 0) {
+    document.getElementById("roadmap").style.visibility = "hidden";
+  } else {
+    for (let i = 0; i < semesterData.length; i++) {
+      var entry = document.createElement("li");
+      entry.id = semesterData[i]["id"];
+      var date = formatDate(semesterData[i]["date"]);
+      entry.innerHTML = '<span class="eventHeader">' + date + ': ' + semesterData[i]["name"] + ' </span><span class="editArea">[<span class="interactive" onclick="edit(this.closest(' + "'li')" + '.id)">EDIT</span>]</span><br><span class="eventText">' + semesterData[i]["text"] + '</span>';
 
-    if (semesterData[i]["done"]) {
-      entry.className = "done";
+      if (semesterData[i]["done"]) {
+        entry.className = "done";
+      }
+
+      htmlList.appendChild(entry);
     }
-
-    htmlList.appendChild(entry);
   }
+
 }
 
 function validateInput(name, date) {
