@@ -6,10 +6,9 @@ p {
     color: mediumspringgreen;
 }
 main {
-    margin-top:50px;
+    margin-top:60px;
     overflow-y: hidden;
     text-align: center;
-
 }
 
 .main {
@@ -26,7 +25,7 @@ main {
     border-radius: 4px;
     font-family: 'Play', sans-serif;
     color: mediumspringgreen;
-    background-color: rgb(39, 39, 39);    
+    background-color: rgb(39, 39, 39);
 }
 
 #demokey {
@@ -42,7 +41,7 @@ form {
 
 form > label {
     float: left;
-    margin: 12px 0 4px 0; 
+    margin: 12px 0 4px 0;
     font-family: 'Play', sans-serif;
     color: rgb(235, 235, 235);
 }
@@ -71,65 +70,65 @@ form > input:focus, form > textarea:focus, form > button:hover {
 /* Animation */
 
 /* Startpositionen */
-.spaceframe { 
-    position: relative; 
-    width: 300px; 
-    height: 165px; 
-    background:rgb(44, 44, 44); 
-    margin: 1em auto; 
+.spaceframe {
+    position: relative;
+    width: 300px;
+    height: 165px;
+    background:rgb(44, 44, 44);
+    margin: 1em auto;
     margin-top:0;
-    overflow: hidden; 
-    border-top-left-radius: 300px; 
-    border-top-right-radius: 300px; 
-    border: 2px solid var(--AnimatedNeoncolor);
+    overflow: hidden;
+    border-top-left-radius: 300px;
+    border-top-right-radius: 300px;
+    border: 3px solid var(--AnimatedNeoncolor);
 }
 
-.spaceframe img { 
-    position: absolute; 
+.spaceframe img {
+    position: absolute;
 }
 
-.landschaft1 { 
-    width: 300px; 
-    height: 165px; 
+.landschaft1 {
+    width: 300px;
+    height: 165px;
     animation: loop1 18s infinite reverse linear;
 }
 
-.landschaft2 { 
-    width: 300px; 
-    height: 165px; 
+.landschaft2 {
+    width: 300px;
+    height: 165px;
     animation: loop2 18s infinite reverse linear;
 }
 
-.sterne1 { 
-    width: 300px; 
-    height: 100px;  
+.sterne1 {
+    width: 300px;
+    height: 100px;
     animation: loop1 60s infinite reverse linear;
 }
-.sterne2 { 
-    width: 300px; 
-    height: 100px;  
+.sterne2 {
+    width: 300px;
+    height: 100px;
     animation: loop2 60s infinite reverse linear;
 }
 
-.mond { 
-    width: 30%; 
-    height: auto; 
-    animation: mond 30s infinite reverse linear; 
+.mond {
+    width: 30%;
+    height: auto;
+    animation: mond 30s infinite reverse linear;
 }
-.alien { 
-    width: 20%; 
-    height: auto; 
-    bottom: 50px; 
-    right: 20%; 
+.alien {
+    width: 20%;
+    height: auto;
+    bottom: 50px;
+    right: 20%;
     animation: alien 10s linear infinite;
 
 }
 
-.qualm { 
-    width: 40%; 
-    height: auto; 
-    bottom: 60px; 
-    right: 50%; 
+.qualm {
+    width: 40%;
+    height: auto;
+    bottom: 60px;
+    right: 50%;
     animation: qualm 8s infinite;
 }
 
@@ -224,7 +223,7 @@ h3:hover {
 }
 
 /*alien-floating-around*/
-.floating {  
+.floating {
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -236,5 +235,5 @@ h3:hover {
 @keyframes floating {
     from { transform: translate(0,  0px); }
     65%  { transform: translate(0, 15px); }
-    to   { transform: translate(0, -0px); }    
-} 
+    to   { transform: translate(0, -0px); }
+}

@@ -2,16 +2,17 @@
 var rgb = [255, 0, 0]; //Array mit RGB-Werten für animierten Gradient
 var indexColor = 1; //Index für den Algorithmus des animierten Gradients
 var add = true; //Anweisung für den Algorithmus des animierten Gradients
-var timer = 1; //Timer des animierten Gradients
+var timer = 20; //Timer des animierten Gradients
 
+var key; //API key
 var listIDs = []; //array with IDs to all lists in backend
 var semesterData; //userdata of specific semester
 
+if (document.title = "impressum") {
+  getKey();
+}
 
-var key;
-
-
-
+startAnimatedGradient();
 
 
 /*** ANIMATED GRADIENT ***/
@@ -24,12 +25,12 @@ function startAnimatedGradient() {
    *
    * -> start gradient: startAnimatedGradient()
    * -> terminate gradient: clearTimeout(animatedGradient)
-   * 
+   *
    * @return {}
    */
   if (add) {
     rgb[indexColor]++;
-    
+
     if (rgb[indexColor] === 255) {
       add = false;
       switch (indexColor) {
@@ -81,7 +82,7 @@ function startAnimatedGradient() {
 /*** DROPDOWN MENUE ***/
 function openDropdown() {
   /*
-   * shows and hides dropdown 
+   * shows and hides dropdown
    *
    * @return {}
    */
@@ -123,11 +124,11 @@ function generateEvent(titel, date, text, done) {
 
   var event = { //necessary formating, can be processed in backend
     "name" : JSON.stringify(name),
-    "bought" : false 
+    "bought" : false
   }
 
   if (done) {
-    event["bought"] = true; 
+    event["bought"] = true;
   }
 
   return event;
@@ -141,7 +142,7 @@ function sortItems(items) {
    * @return {array}: events in JSON fomat in chronological order
    */
   var eventList = [];
-  
+
   items["items"].forEach(item => {
     let details = JSON.parse(item["name"]);
     let newItem = {
@@ -151,7 +152,7 @@ function sortItems(items) {
       "done" : item["bought"],
       "id" : item["_id"]
     };
-    
+
     eventList.push(newItem);
   });
 
@@ -160,7 +161,7 @@ function sortItems(items) {
     let dateB = Date(b["date"]);
     return new Date(a["date"]).getTime() - new Date(b["date"]).getTime();
   });
-  
+
   return eventList;
 }
 
@@ -319,11 +320,11 @@ function getAllLists(callback) {
      * @return {array}: listIDs
      */
     var sortedListIDs = [];
-  
+
     lists.forEach(list => {
       var a = list["name"].charAt(list["name"].length-2);
       var b = list["name"].charAt(list["name"].length-1);
-      
+
       if (a == 0) {
         if (b == 0) {
           sortedListIDs[0] = list["_id"];
@@ -335,8 +336,8 @@ function getAllLists(callback) {
         sortedListIDs[x] = list["_id"];
       }
     });
-  
-    return sortedListIDs; 
+
+    return sortedListIDs;
   };
 
   request.onreadystatechange = () => {
@@ -372,7 +373,7 @@ function createNewList(name, callback) {
   request.open("POST", url);
   request.setRequestHeader("Authorization", key);
   request.setRequestHeader("Content-type", "application/json");
-  var item = { 
+  var item = {
     "name" : name
   };
   var data = JSON.stringify(item);
@@ -449,7 +450,7 @@ function validate() {
   request.onreadystatechange = () => {
     if (request.readyState == 4 && request.status == 200) {
       var answer = JSON.parse(request.responseText);
-      
+
       answer.forEach(list => {
         if (isNaN(getNumber(list["name"]))) {
           console.log(getNumber(list["name"]));
@@ -509,7 +510,7 @@ function myTimer() {
 
 function audioPlaying() {
     var myAudio = document.getElementById('playAudio');
-    
+
     if (myAudio.duration > 0 && !myAudio.paused) {
         clearInterval(myVar);
         document.getElementById("playAudio").pause();
@@ -528,4 +529,16 @@ function goToImpressum() {
 
 function goToSettings() {
   window.open("avatar.html?key=" + key, "_self");
+}
+
+
+
+function login() {
+  /*
+   * validate API key and log into platform
+   *
+   * @return {}
+   */
+    key = document.forms["login"]["key"].value;
+    validate();
 }

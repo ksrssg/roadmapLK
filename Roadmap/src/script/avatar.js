@@ -1,14 +1,16 @@
-
+/*** VARIABLES ***/
 var alienArray = ["../src/images/alien.png", "../src/images/alien_red.png", "../src/images/alien_yellow.png", "../src/images/alien_hpe.png", "../src/images/alien_blue.png", "../src/images/alien_lila.png" ];
-var index = 0; 
+var index = 0;
 
-startAnimatedGradient();
-
+/*** ONLOAD ***/
 window.onload = () => {
+    /*
+     * get API Key
+     */
     getKey();
 }
 
-
+/*** USER INTERACTIVITY ***/
 function switchforeward() {
 
     if(index <=5) {
