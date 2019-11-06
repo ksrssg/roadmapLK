@@ -104,6 +104,8 @@ function printLists() {
             even.appendChild(document.createElement("td"));
         } else { //even number
             var td = document.createElement("td");
+            number += "";
+            
             td.innerHTML = '<img title="Semester ' + getNumber(number) + '"  id="semester' + number + '" class="planetsRing interactiveElement" src="' + planets[index++] + '" onclick="openRoadmap(id)" onmouseover ="changesemestertext(id)" onmouseout = "changetextback()" alt="planet1">';
             even.appendChild(td);
             odd.appendChild(document.createElement("td"));

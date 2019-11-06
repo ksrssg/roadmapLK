@@ -485,7 +485,7 @@ function getKey() {
 function getNumber(string) {
   var a = string.charAt(string.length-2);
   var b = string.charAt(string.length-1);
-
+  
     if (a == 0) {
         return b;
     } else {
